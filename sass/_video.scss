@@ -1,0 +1,12 @@
+.video-container {
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 65.25%;
+}
+.video-container iframe {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+}

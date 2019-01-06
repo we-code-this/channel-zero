@@ -1,0 +1,65 @@
+html {
+  background: #000 url(/static/img/bg-alt.jpg) top left no-repeat;
+  background-size: cover;
+}
+
+html,
+h2 a,
+h3 a,
+h4 a,
+h5 a {
+  color: #000;
+}
+
+body {
+  font-size: 16px;
+  font-family: "Rubik", sans-serif;
+}
+
+section {
+  padding: 0 1.5rem 0.25rem 1.5rem;
+  min-height: 400px;
+}
+
+.page-alt {
+  section {
+    padding-top: 1.5rem;
+
+    background-color: #f8f8f8;
+  }
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+.column-content {
+  height: 100%;
+}
+
+.column-content,
+.column-content-inline {
+  background-color: #fff;
+  padding: 1rem;
+}
+
+.column-content-inline {
+  margin-bottom: 1.5rem;
+}
+
+.column-content-inline:last-child {
+  margin-bottom: 0;
+}
+
+.flex {
+  display: flex;
+  justify-items: center;
+  height: 100%;
+
+  img {
+    height: 150px;
+    width: auto;
+    margin: 0 auto;
+  }
+}

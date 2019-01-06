@@ -1,0 +1,27 @@
+.l-a {
+  display: none;
+  text-align: center;
+  margin-bottom: 1.5rem;
+
+  @media (min-width: 768px) {
+    display: block;
+
+    img {
+      width: 728px;
+      height: 90;
+    }
+  }
+}
+
+.m-a {
+  margin-bottom: 1.5rem;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+}

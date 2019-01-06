@@ -1,0 +1,27 @@
+.header {
+  text-align: center;
+  position: relative;
+  display: block;
+  justify-content: space-between;
+  padding-bottom: 0;
+
+  @media (min-width: 300px) {
+    padding-bottom: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    padding-bottom: 0;
+
+    .video {
+      display: inline-block;
+      width: 25%;
+      height: auto;
+      overflow: hidden;
+      max-width: none;
+      margin: 1rem 3rem 1rem 3rem;
+    }
+  }
+
+  @media (min-width: 968px) {
+  }
+}
