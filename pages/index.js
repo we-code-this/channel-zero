@@ -16,6 +16,19 @@ class Index extends Component {
     super(props);
 
     this.state = {
+      feature: {
+        article: {
+          id: 1,
+          url: "#",
+          title: "Parturient Fermentum Bibendum",
+          summary:
+            "Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum"
+        },
+        video: {
+          id: 1,
+          src: "https://www.youtube.com/embed/YNorGUam5w4"
+        }
+      },
       horizontalPromos: [
         {
           id: 1,
@@ -85,7 +98,7 @@ class Index extends Component {
           <HorizontalAd />
           <div className="columns">
             <div className="column is-three-fifths">
-              <Feature />
+              <Feature {...this.state.feature} />
               <Articles />
             </div>
             <div className="column">
