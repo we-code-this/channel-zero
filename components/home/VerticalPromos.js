@@ -1,29 +1,25 @@
 import React, { Component } from "react";
+import Promo from "../common/Promo";
 
 class VerticalPromos extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      promos: props.promos
+    };
+  }
+
   render() {
     return (
       <div className="column">
-        <div className="column-content-inline">
-          <a href="#">
-            <img src="/static/img/logos/rapstation.svg" alt="Rapstation.com" />
-          </a>
-        </div>
-        <div className="column-content-inline">
-          <a href="#">
-            <img src="/static/img/logos/spitslam.svg" alt="Spitslam" />
-          </a>
-        </div>
-        <div className="column-content-inline">
-          <a href="#">
-            <img src="/static/img/logos/spitifly.svg" alt="Spitifly" />
-          </a>
-        </div>
-        <div className="column-content-inline">
-          <a href="#">
-            <img src="/static/img/logos/dig-the-dig.svg" alt="Spitifly" />
-          </a>
-        </div>
+        {this.state.promos.map(promo => {
+          return (
+            <div className="column-content-inline" key={promo.id}>
+              <Promo {...promo} />
+            </div>
+          );
+        })}
       </div>
     );
   }

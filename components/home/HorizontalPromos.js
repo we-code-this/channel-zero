@@ -1,44 +1,27 @@
 import React, { Component } from "react";
+import Promo from "../common/Promo";
 
 class HorizontalPromos extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      promos: props.promos
+    };
+  }
+
   render() {
     return (
       <div className="columns">
-        <div className="column">
-          <div className="column-content">
-            <a href="#" className="flex">
-              <img src="/static/img/logos/madurgency.svg" alt="" />
-            </a>
-          </div>
-        </div>
-        <div className="column">
-          <div className="column-content">
-            <a href="#" className="flex">
-              <img src="/static/img/logos/the-age.svg" alt="" />
-            </a>
-          </div>
-        </div>
-        <div className="column">
-          <div className="column-content">
-            <a href="#" className="flex">
-              <img src="/static/img/logos/enemy-books.svg" alt="" />
-            </a>
-          </div>
-        </div>
-        <div className="column">
-          <div className="column-content">
-            <a href="#" className="flex">
-              <img src="/static/img/logos/spitburg-pirates.svg" alt="" />
-            </a>
-          </div>
-        </div>
-        <div className="column">
-          <div className="column-content">
-            <a href="#" className="flex">
-              <img src="/static/img/logos/hiphopgods.svg" alt="" />
-            </a>
-          </div>
-        </div>
+        {this.state.promos.map(promo => {
+          return (
+            <div className="column" key={promo.id}>
+              <div className="column-content">
+                <Promo {...promo} className="flex" />
+              </div>
+            </div>
+          );
+        })}
       </div>
     );
   }

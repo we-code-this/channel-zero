@@ -21,9 +21,9 @@ class Feature extends Component {
             <div className="video-container">
               <iframe
                 src="https://www.youtube.com/embed/YNorGUam5w4"
-                frameborder="0"
+                frameBorder="0"
                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
+                allowFullScreen
               />
             </div>
           </div>
