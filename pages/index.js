@@ -86,6 +86,29 @@ class Index extends Component {
           url: "#",
           imageUrl: "/static/img/logos/dig-the-dig.svg"
         }
+      ],
+      releases: [
+        {
+          id: 1,
+          artist: "Chuck D aka Mistachuck",
+          title: "Celebration of Ignorance",
+          url: "/dig/release/chuck-d-mistachuck-celebration-ignorance",
+          imageUrl: "/static/img/other/mistachuck.png"
+        },
+        {
+          id: 2,
+          artist: "DJ Lord",
+          title: "Afterburn",
+          url: "/dig/release/dj-lord-afterburn",
+          imageUrl: "/static/img/other/dj-lord.jpg"
+        },
+        {
+          id: 3,
+          artist: "Anime Oscen & Hive",
+          title: "North Country",
+          url: "/dig/release/anime-oscen-hive-north-country",
+          imageUrl: "/static/img/other/anime-oscen.jpg"
+        }
       ]
     };
   }
@@ -103,7 +126,7 @@ class Index extends Component {
             </div>
             <div className="column">
               <div className="columns">
-                <Releases />
+                <Releases releases={this.state.releases} />
                 <VerticalPromos promos={this.state.verticalPromos} />
               </div>
             </div>

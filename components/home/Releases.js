@@ -1,24 +1,21 @@
 import React, { Component } from "react";
+import Release from "../common/Release";
 
 class Releases extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      releases: props.releases
+    };
+  }
+
   render() {
     return (
       <div className="column">
-        <div className="column-content-inline">
-          <a href="#">
-            <img src="/static/img/other/mistachuck.png" alt="" />
-          </a>
-        </div>
-        <div className="column-content-inline">
-          <a href="#">
-            <img src="/static/img/other/dj-lord.jpg" alt="" />
-          </a>
-        </div>
-        <div className="column-content-inline">
-          <a href="#">
-            <img src="/static/img/other/mistachuck.png" alt="" />
-          </a>
-        </div>
+        {this.state.releases.map(release => (
+          <Release key={release.id} {...release} />
+        ))}
       </div>
     );
   }
