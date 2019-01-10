@@ -1,11 +1,10 @@
 import React, { Component } from "react";
+import Ad from "../components/common/Ad";
 import Articles from "../components/home/Articles";
 import Feature from "../components/home/Feature";
 import Footer from "../components/common/Footer";
 import Header from "../components/common/Header";
-import HorizontalAd from "../components/common/HorizontalAd";
 import HorizontalPromos from "../components/home/HorizontalPromos";
-import MobileAd from "../components/common/MobileAd";
 import Releases from "../components/home/Releases";
 import VerticalPromos from "../components/home/VerticalPromos";
 
@@ -16,6 +15,12 @@ class Index extends Component {
     super(props);
 
     this.state = {
+      ad: {
+        url: "#",
+        alt: "Something awesome to promote",
+        desktopImageUrl: "/static/img/a/leaderboard.jpg",
+        mobileImageUrl: "/static/img/a/mobile.jpg"
+      },
       feature: {
         article: {
           id: 1,
@@ -29,6 +34,50 @@ class Index extends Component {
           src: "https://www.youtube.com/embed/YNorGUam5w4"
         }
       },
+      articles: [
+        {
+          id: 6,
+          url: "#",
+          title: "Parturient Fermentum Bibendum",
+          summary:
+            "Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum"
+        },
+        {
+          id: 5,
+          url: "#",
+          title: "Mattis Ultricies Egestas Pharetra",
+          summary:
+            "Maecenas sed diam eget risus varius blandit sit amet non magna.           Donec ullamcorper nulla non metus auctor fringilla…"
+        },
+        {
+          id: 4,
+          url: "#",
+          title: "Sollicitudin Ligula Parturient",
+          summary:
+            "Donec sed odio dui. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus…"
+        },
+        {
+          id: 3,
+          url: "#",
+          title: "Parturient Fermentum Bibendum, Yo!",
+          summary:
+            "Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum"
+        },
+        {
+          id: 2,
+          url: "#",
+          title: "Mattis Ultricies Egestas Pharetra",
+          summary:
+            "Maecenas sed diam eget risus varius blandit sit amet non magna.           Donec ullamcorper nulla non metus auctor fringilla…"
+        },
+        {
+          id: 1,
+          url: "#",
+          title: "Sollicitudin Ligula Parturient",
+          summary:
+            "Donec sed odio dui. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus…"
+        }
+      ],
       horizontalPromos: [
         {
           id: 1,
@@ -118,11 +167,15 @@ class Index extends Component {
       <div className="page page-alt">
         <Header />
         <section>
-          <HorizontalAd />
+          <Ad
+            url={this.state.ad.url}
+            alt={this.state.ad.alt}
+            imageUrl={this.state.ad.desktopImageUrl}
+          />
           <div className="columns">
             <div className="column is-three-fifths">
               <Feature {...this.state.feature} />
-              <Articles />
+              <Articles articles={this.state.articles} />
             </div>
             <div className="column">
               <div className="columns">
@@ -132,7 +185,12 @@ class Index extends Component {
             </div>
           </div>
           <HorizontalPromos promos={this.state.horizontalPromos} />
-          <MobileAd />
+          <Ad
+            url={this.state.ad.url}
+            alt={this.state.ad.alt}
+            imageUrl={this.state.ad.mobileImageUrl}
+            mobile
+          />
         </section>
         <Footer />
       </div>
