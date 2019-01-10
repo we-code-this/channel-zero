@@ -8,30 +8,10 @@ const dev = process.env.NODE_ENV !== "production";
 const app = next({ dev });
 const handle = app.getRequestHandler();
 
-const defaultAdminRoot = "admin";
-const adminRoot = process.env.ADMIN_ROOT
-  ? process.env.ADMIN_ROOT
-  : defaultAdminRoot;
-
 app
   .prepare()
   .then(() => {
     const server = express();
-
-    server.get(`/${adminRoot}`, (req, res) => {
-      const parsedUrl = parse(req.url, true);
-      const { query } = parsedUrl;
-
-      console.log(`/${adminRoot}`);
-
-      app.render(req, res, `/${defaultAdminRoot}`, query);
-    });
-
-    if (adminRoot !== defaultAdminRoot) {
-      server.get(`/${defaultAdminRoot}`, (req, res) => {
-        app.render404(req, res);
-      });
-    }
 
     server.get("*", (req, res) => {
       return handle(req, res);
