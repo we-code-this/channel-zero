@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Article from "../common/Article";
 
 class Articles extends Component {
   constructor(props) {
@@ -8,6 +9,7 @@ class Articles extends Component {
       articles: props.articles
     };
   }
+
   render() {
     const articles = this.state.articles;
     const articleRows = [];
@@ -26,18 +28,7 @@ class Articles extends Component {
           return (
             <div className="columns" key={`row-${index}`}>
               {row.map(article => {
-                return (
-                  <div className="column" key={`article-${article.id}`}>
-                    <div className="column-content">
-                      <h2 className="title is-4">
-                        <a href={article.url}>{article.title}</a>
-                      </h2>
-                      <p>
-                        {article.summary} <a href="#">Read more…</a>
-                      </p>
-                    </div>
-                  </div>
-                );
+                return <Article {...article} key={`article-${article.id}`} />;
               })}
             </div>
           );
