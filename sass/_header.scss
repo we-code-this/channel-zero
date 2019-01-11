@@ -5,13 +5,7 @@
   justify-content: space-between;
   padding-bottom: 0;
 
-  @media (min-width: 300px) {
-    padding-bottom: 1rem;
-  }
-
   @media (min-width: 768px) {
-    padding-bottom: 0;
-
     .video {
       display: inline-block;
       width: 25%;

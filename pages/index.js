@@ -2,13 +2,10 @@ import React, { Component } from "react";
 import Ad from "../components/common/Ad";
 import Articles from "../components/home/Articles";
 import Feature from "../components/home/Feature";
-import Footer from "../components/common/Footer";
-import Header from "../components/common/Header";
 import HorizontalPromos from "../components/home/HorizontalPromos";
+import Layout from "../components/common/layouts/Layout";
 import Releases from "../components/home/Releases";
 import VerticalPromos from "../components/home/VerticalPromos";
-
-import "../sass/app.scss";
 
 class Index extends Component {
   constructor(props) {
@@ -141,21 +138,21 @@ class Index extends Component {
           id: 1,
           artist: "Chuck D aka Mistachuck",
           title: "Celebration of Ignorance",
-          url: "/dig/release/chuck-d-mistachuck-celebration-ignorance",
+          slug: "chuck-d-mistachuck-celebration-ignorance",
           imageUrl: "/static/img/other/mistachuck.png"
         },
         {
           id: 2,
           artist: "DJ Lord",
           title: "Afterburn",
-          url: "/dig/release/dj-lord-afterburn",
+          slug: "dj-lord-afterburn",
           imageUrl: "/static/img/other/dj-lord.jpg"
         },
         {
           id: 3,
           artist: "Anime Oscen & Hive",
           title: "North Country",
-          url: "/dig/release/anime-oscen-hive-north-country",
+          slug: "anime-oscen-hive-north-country",
           imageUrl: "/static/img/other/anime-oscen.jpg"
         }
       ]
@@ -164,36 +161,32 @@ class Index extends Component {
 
   render() {
     return (
-      <div className="page page-alt">
-        <Header />
-        <section>
-          <Ad
-            url={this.state.ad.url}
-            alt={this.state.ad.alt}
-            imageUrl={this.state.ad.desktopImageUrl}
-          />
-          <div className="columns">
-            <div className="column is-three-fifths">
-              <Feature {...this.state.feature} />
-              <Articles articles={this.state.articles} />
-            </div>
-            <div className="column">
-              <div className="columns">
-                <Releases releases={this.state.releases} />
-                <VerticalPromos promos={this.state.verticalPromos} />
-              </div>
+      <Layout>
+        <Ad
+          url={this.state.ad.url}
+          alt={this.state.ad.alt}
+          imageUrl={this.state.ad.desktopImageUrl}
+        />
+        <div className="columns">
+          <div className="column is-three-fifths">
+            <Feature {...this.state.feature} />
+            <Articles articles={this.state.articles} />
+          </div>
+          <div className="column">
+            <div className="columns">
+              <Releases releases={this.state.releases} />
+              <VerticalPromos promos={this.state.verticalPromos} />
             </div>
           </div>
-          <HorizontalPromos promos={this.state.horizontalPromos} />
-          <Ad
-            url={this.state.ad.url}
-            alt={this.state.ad.alt}
-            imageUrl={this.state.ad.mobileImageUrl}
-            mobile
-          />
-        </section>
-        <Footer />
-      </div>
+        </div>
+        <HorizontalPromos promos={this.state.horizontalPromos} />
+        <Ad
+          url={this.state.ad.url}
+          alt={this.state.ad.alt}
+          imageUrl={this.state.ad.mobileImageUrl}
+          mobile
+        />
+      </Layout>
     );
   }
 }

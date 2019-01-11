@@ -13,6 +13,12 @@ app
   .then(() => {
     const server = express();
 
+    server.get("/dig/release/:slug", (req, res) => {
+      const actualPage = "/dig/release";
+      const queryParams = { slug: req.params.slug };
+      app.render(req, res, actualPage, queryParams);
+    });
+
     server.get("*", (req, res) => {
       return handle(req, res);
     });

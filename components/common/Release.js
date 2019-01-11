@@ -1,8 +1,8 @@
+import ReleaseCoverLink from "./links/ReleaseCoverLink";
+
 const Release = props => (
   <div className="column-content-inline">
-    <a href={props.url}>
-      <img src={props.imageUrl} alt={`${props.artist} - ${props.title}`} />
-    </a>
+    <ReleaseCoverLink {...props} />
   </div>
 );
 

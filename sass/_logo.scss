@@ -3,11 +3,50 @@
   display: inline-block;
   margin: 0;
   width: 100%;
-  max-width: 275px;
+  max-width: 200px;
 
   @media (min-width: 768px) {
     width: 100%;
     max-width: 254px;
     height: auto;
+  }
+}
+
+.dig-header {
+  .logos {
+    align-content: center;
+    align-items: center;
+    display: flex;
+    margin: 0 auto;
+    max-width: none;
+    width: 60%;
+
+    .logo,
+    .dig-logo {
+      display: block;
+      height: 100%;
+    }
+
+    .logo {
+      flex-basis: 69%;
+      max-width: none;
+    }
+
+    .dig-logo {
+      margin-left: 5%;
+      flex-basis: 26%;
+    }
+
+    @media (min-width: 600px) {
+      width: 50%;
+    }
+
+    @media (min-width: 768px) {
+      width: 40%;
+    }
+
+    @media (min-width: 1200px) {
+      width: 30%;
+    }
   }
 }
