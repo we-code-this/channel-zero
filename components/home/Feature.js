@@ -13,7 +13,7 @@ class Feature extends Component {
 
   renderVideo() {
     return (
-      <div className="column is-two-thirds">
+      <div className="column is-two-thirds" id="feature">
         <div className="column-content">
           <div className="video-container">
             <iframe

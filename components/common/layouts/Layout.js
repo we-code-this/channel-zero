@@ -21,7 +21,7 @@ const Layout = ({ children, title = "Channel Zero", header }) => {
       </Head>
       <div className="page page-alt">
         {header}
-        <section>{children}</section>
+        <section id="main">{children}</section>
         <Footer />
       </div>
     </React.Fragment>

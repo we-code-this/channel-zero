@@ -5,7 +5,6 @@ import { expect } from "chai";
 import Articles from "../../../components/home/Articles";
 
 describe("Articles", () => {
-  let articles;
   const articlesData = [
     {
       id: 1,
@@ -21,26 +20,8 @@ describe("Articles", () => {
     }
   ];
 
-  beforeEach(() => {
-    articles = render(<Articles articles={articlesData} />);
-  });
-
   it("should contain correct number of Articles", () => {
+    const articles = render(<Articles articles={articlesData} />);
     expect(articles.find(".article").length).to.equal(2);
-  });
-
-  it("should render the correct articles", () => {
-    expect(
-      articles
-        .find(".article")
-        .first()
-        .text()
-    ).to.have.string("Article 1");
-    expect(
-      articles
-        .find(".article")
-        .last()
-        .text()
-    ).to.have.string("Article 2");
   });
 });

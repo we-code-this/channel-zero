@@ -13,6 +13,8 @@
   },
   "nyc": {
     "exclude": [
+      "server.js",
+      "pages/_app.js",
       "next.config.js",
       "mocha.setup.js",
       "coverage/**",
