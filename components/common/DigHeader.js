@@ -1,5 +1,5 @@
 const DigHeader = () => (
-  <div className="header dig-header">
+  <div className="header dig-header" id="dig-header">
     <div className="logos">
       <a href="#" className="logo">
         <img src="/static/img/logo.svg" alt="ChannelZero" />

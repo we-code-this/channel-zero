@@ -1,7 +1,7 @@
 const Header = () => (
-  <div className="header">
+  <div className="header" id="header">
     <a href="#" className="logo">
-      <img src="/static/img/logo.svg" alt="ChannelZero" />
+      <img src="/static/img/logo.svg" alt="Channel Zero logo" />
     </a>
   </div>
 );
