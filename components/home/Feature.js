@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Article from "../common/Article";
 
 class Feature extends Component {
   constructor(props) {
@@ -31,18 +32,7 @@ class Feature extends Component {
     // this.state.video is not required
     return (
       <div className="columns">
-        <div className="column">
-          <div className="column-content">
-            <h2 className="title is-4">
-              <a href={this.state.article.url}>{this.state.article.title}</a>
-            </h2>
-            <p>
-              {this.state.article.summary + " "}
-              <a href={this.state.article.url}>Read more…</a>
-            </p>
-          </div>
-        </div>
-
+        <Article {...this.state.article} />
         {this.state.video ? this.renderVideo() : undefined}
       </div>
     );

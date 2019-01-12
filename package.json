@@ -6,10 +6,30 @@
   "author": "Michael Gregoire <mgregoire@nvzion.com>",
   "license": "Apache-2.0",
   "scripts": {
-    "test": "NODE_ENV=test mocha",
+    "test": "NODE_ENV=test nyc --all mocha",
     "dev": "node server.js",
     "build": "next build",
     "start": "NODE_ENV=production node server.js"
+  },
+  "nyc": {
+    "exclude": [
+      "next.config.js",
+      "mocha.setup.js",
+      "coverage/**",
+      "test/**",
+      "test{,-*}.js",
+      "**/*.test.js",
+      "**/__tests__/**",
+      "**/node_modules/**"
+    ],
+    "require": [
+      "@babel/register"
+    ],
+    "reporter": [
+      "lcov"
+    ],
+    "sourceMap": false,
+    "instrument": false
   },
   "dependencies": {
     "@zeit/next-sass": "^1.0.1",
@@ -26,9 +46,11 @@
   "devDependencies": {
     "@babel/core": "^7.2.2",
     "@babel/register": "^7.0.0",
+    "babel-plugin-istanbul": "^5.1.0",
     "chai": "^4.2.0",
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.7.1",
-    "mocha": "^5.2.0"
+    "mocha": "^5.2.0",
+    "nyc": "^13.1.0"
   }
 }
