@@ -4,7 +4,7 @@ import { expect } from "chai";
 
 import Feature from "../../../components/home/Feature";
 
-describe("Feature Render", () => {
+describe("Feature", () => {
   const article = {
     id: 1,
     url: "/feature",

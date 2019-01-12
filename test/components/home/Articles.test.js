@@ -4,7 +4,7 @@ import { expect } from "chai";
 
 import Articles from "../../../components/home/Articles";
 
-describe("Articles Render", () => {
+describe("Articles", () => {
   let articles;
   const articlesData = [
     {

@@ -4,7 +4,7 @@ import { expect } from "chai";
 
 import Ad from "../../../components/common/Ad";
 
-describe("Ad Render", () => {
+describe("Ad", () => {
   const adData = {
     url: "/ad",
     alt: "Test Ad",

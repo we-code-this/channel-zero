@@ -5,7 +5,7 @@ import { expect } from "chai";
 import Layout from "../../../../components/common/layouts/Layout";
 import DigHeader from "../../../../components/common/DigHeader";
 
-describe("Layout Render", () => {
+describe("Layout", () => {
   describe("Layout Structure", () => {
     let layout;
 

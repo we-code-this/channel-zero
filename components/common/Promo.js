@@ -1,5 +1,5 @@
 const Promo = props => {
-  const classes = props.className ? props.className : "";
+  const classes = props.className ? `${props.className} promo` : "promo";
 
   return (
     <a href={props.url} className={classes}>

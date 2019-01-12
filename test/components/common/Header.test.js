@@ -4,7 +4,7 @@ import { expect } from "chai";
 
 import Header from "../../../components/common/Header";
 
-describe("Header Render", () => {
+describe("Header", () => {
   let header;
 
   beforeEach(() => {
