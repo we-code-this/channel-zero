@@ -5,7 +5,7 @@ const Article = props => (
         <a href={props.url}>{props.title}</a>
       </h2>
       <p>
-        {props.summary} <a href="#">Read more…</a>
+        {props.summary} <a href={props.url}>Read more…</a>
       </p>
     </div>
   </div>

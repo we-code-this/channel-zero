@@ -2,8 +2,8 @@ import { render } from "enzyme";
 import React from "react";
 import { expect } from "chai";
 
-import Layout from "../../components/common/layouts/Layout";
-import DigHeader from "../../components/common/DigHeader";
+import Layout from "../../../../components/common/layouts/Layout";
+import DigHeader from "../../../../components/common/DigHeader";
 
 describe("Layout Render", () => {
   describe("Layout Structure", () => {

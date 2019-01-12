@@ -2,7 +2,7 @@ import { render } from "enzyme";
 import React from "react";
 import { expect } from "chai";
 
-import Header from "../../components/common/Header";
+import Header from "../../../components/common/Header";
 
 describe("Header Render", () => {
   let header;
