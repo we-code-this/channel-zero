@@ -3,12 +3,14 @@ import React from "react";
 import { expect } from "chai";
 
 import App from "../../pages/index";
+import { fetchHomeProps } from "../../models/utilities";
 
-describe("pages/index", () => {
+describe("pages/index", async () => {
   let app;
+  const props = await fetchHomeProps();
 
   beforeEach(() => {
-    app = render(<App />);
+    app = render(<App {...props} />);
   });
 
   it("should render header", () => {

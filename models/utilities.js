@@ -38,11 +38,30 @@ const fetchReleases = async () => {
   return await res.json();
 };
 
+const fetchHomeProps = async () => {
+  const ad = await fetchAd();
+  const feature = await fetchFeature();
+  const articles = await fetchArticles();
+  const horizontalPromos = await fetchHorizontalPromos();
+  const verticalPromos = await fetchVerticalPromos();
+  const releases = await fetchReleases();
+
+  return {
+    ad,
+    feature,
+    articles,
+    horizontalPromos,
+    verticalPromos,
+    releases
+  };
+};
+
 export {
   fetchAd,
   fetchFeature,
   fetchArticles,
   fetchHorizontalPromos,
   fetchVerticalPromos,
-  fetchReleases
+  fetchReleases,
+  fetchHomeProps
 };

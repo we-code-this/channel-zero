@@ -7,32 +7,11 @@ import Layout from "../components/common/layouts/Layout";
 import Releases from "../components/home/Releases";
 import VerticalPromos from "../components/home/VerticalPromos";
 import "isomorphic-unfetch";
-import {
-  fetchAd,
-  fetchFeature,
-  fetchArticles,
-  fetchHorizontalPromos,
-  fetchVerticalPromos,
-  fetchReleases
-} from "../models/utilities";
+import { fetchHomeProps } from "../models/utilities";
 
 class Index extends Component {
   static async getInitialProps() {
-    const ad = await fetchAd();
-    const feature = await fetchFeature();
-    const articles = await fetchArticles();
-    const horizontalPromos = await fetchHorizontalPromos();
-    const verticalPromos = await fetchVerticalPromos();
-    const releases = await fetchReleases();
-
-    return {
-      ad,
-      feature,
-      articles,
-      horizontalPromos,
-      verticalPromos,
-      releases
-    };
+    return await fetchHomeProps();
   }
 
   constructor(props) {
