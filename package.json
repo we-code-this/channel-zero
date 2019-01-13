@@ -13,6 +13,7 @@
   },
   "nyc": {
     "exclude": [
+      "models/utilities.js",
       "server.js",
       "pages/_app.js",
       "next.config.js",
