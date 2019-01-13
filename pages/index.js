@@ -6,156 +6,77 @@ import HorizontalPromos from "../components/home/HorizontalPromos";
 import Layout from "../components/common/layouts/Layout";
 import Releases from "../components/home/Releases";
 import VerticalPromos from "../components/home/VerticalPromos";
+import "isomorphic-unfetch";
+
+const fetchAd = async () => {
+  const res = await fetch("http://localhost:3000/static/data/home/ad.json");
+  return await res.json();
+};
+
+const fetchFeature = async () => {
+  const res = await fetch(
+    "http://localhost:3000/static/data/home/feature.json"
+  );
+  return await res.json();
+};
+
+const fetchArticles = async () => {
+  const res = await fetch(
+    "http://localhost:3000/static/data/home/articles.json"
+  );
+  return await res.json();
+};
+
+const fetchHorizontalPromos = async () => {
+  const res = await fetch(
+    "http://localhost:3000/static/data/home/horizontalPromos.json"
+  );
+  return await res.json();
+};
+
+const fetchVerticalPromos = async () => {
+  const res = await fetch(
+    "http://localhost:3000/static/data/home/verticalPromos.json"
+  );
+  return await res.json();
+};
+
+const fetchReleases = async () => {
+  const res = await fetch(
+    "http://localhost:3000/static/data/home/releases.json"
+  );
+  return await res.json();
+};
 
 class Index extends Component {
+  static async getInitialProps() {
+    const ad = await fetchAd();
+    const feature = await fetchFeature();
+    const articles = await fetchArticles();
+    const horizontalPromos = await fetchHorizontalPromos();
+    const verticalPromos = await fetchVerticalPromos();
+    const releases = await fetchReleases();
+
+    return {
+      ad,
+      feature,
+      articles,
+      horizontalPromos,
+      verticalPromos,
+      releases
+    };
+  }
+
   constructor(props) {
     super(props);
 
     this.state = {
-      ad: {
-        url: "#",
-        alt: "Something awesome to promote",
-        desktopImageUrl: "/static/img/a/leaderboard.jpg",
-        mobileImageUrl: "/static/img/a/mobile.jpg"
-      },
-      feature: {
-        article: {
-          id: 1,
-          url: "#",
-          title: "Parturient Fermentum Bibendum",
-          summary:
-            "Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum"
-        },
-        video: {
-          id: 1,
-          src: "https://www.youtube.com/embed/YNorGUam5w4"
-        }
-      },
-      articles: [
-        {
-          id: 6,
-          url: "#",
-          title: "Parturient Fermentum Bibendum",
-          summary:
-            "Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum"
-        },
-        {
-          id: 5,
-          url: "#",
-          title: "Mattis Ultricies Egestas Pharetra",
-          summary:
-            "Maecenas sed diam eget risus varius blandit sit amet non magna.           Donec ullamcorper nulla non metus auctor fringilla…"
-        },
-        {
-          id: 4,
-          url: "#",
-          title: "Sollicitudin Ligula Parturient",
-          summary:
-            "Donec sed odio dui. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus…"
-        },
-        {
-          id: 3,
-          url: "#",
-          title: "Parturient Fermentum Bibendum, Yo!",
-          summary:
-            "Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum"
-        },
-        {
-          id: 2,
-          url: "#",
-          title: "Mattis Ultricies Egestas Pharetra",
-          summary:
-            "Maecenas sed diam eget risus varius blandit sit amet non magna.           Donec ullamcorper nulla non metus auctor fringilla…"
-        },
-        {
-          id: 1,
-          url: "#",
-          title: "Sollicitudin Ligula Parturient",
-          summary:
-            "Donec sed odio dui. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus…"
-        }
-      ],
-      horizontalPromos: [
-        {
-          id: 1,
-          name: "Mad Urgency",
-          url: "#",
-          imageUrl: "/static/img/logos/madurgency.svg"
-        },
-        {
-          id: 2,
-          name: "The Age",
-          url: "#",
-          imageUrl: "/static/img/logos/the-age.svg"
-        },
-        {
-          id: 3,
-          name: "Enemy Books",
-          url: "#",
-          imageUrl: "/static/img/logos/enemy-books.svg"
-        },
-        {
-          id: 4,
-          name: "Spitburg Pirates",
-          url: "#",
-          imageUrl: "/static/img/logos/spitburg-pirates.svg"
-        },
-        {
-          id: 5,
-          name: "HipHopGods",
-          url: "#",
-          imageUrl: "/static/img/logos/hiphopgods.svg"
-        }
-      ],
-      verticalPromos: [
-        {
-          id: 6,
-          name: "Rapstation.com",
-          url: "#",
-          imageUrl: "/static/img/logos/rapstation.svg"
-        },
-        {
-          id: 7,
-          name: "Spitslam",
-          url: "#",
-          imageUrl: "/static/img/logos/spitslam.svg"
-        },
-        {
-          id: 8,
-          name: "Spitifly",
-          url: "#",
-          imageUrl: "/static/img/logos/spitifly.svg"
-        },
-        {
-          id: 9,
-          name: "DigTheDig",
-          url: "#",
-          imageUrl: "/static/img/logos/dig-the-dig.svg"
-        }
-      ],
-      releases: [
-        {
-          id: 1,
-          artist: "Chuck D aka Mistachuck",
-          title: "Celebration of Ignorance",
-          slug: "chuck-d-mistachuck-celebration-ignorance",
-          imageUrl: "/static/img/other/mistachuck.png"
-        },
-        {
-          id: 2,
-          artist: "DJ Lord",
-          title: "Afterburn",
-          slug: "dj-lord-afterburn",
-          imageUrl: "/static/img/other/dj-lord.jpg"
-        },
-        {
-          id: 3,
-          artist: "Anime Oscen & Hive",
-          title: "North Country",
-          slug: "anime-oscen-hive-north-country",
-          imageUrl: "/static/img/other/anime-oscen.jpg"
-        }
-      ]
+      ad: props.ad,
+      feature: props.feature,
+      articles: props.articles,
+      horizontalPromos: props.horizontalPromos,
+      verticalPromos: props.verticalPromos,
+      releases: props.releases
     };
   }
 
