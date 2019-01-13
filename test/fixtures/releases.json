@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "artist": "Artist 1",
+    "title": "Album 1",
+    "slug": "artist-1-album-1",
+    "imageUrl": "/album-1.png"
+  },
+  {
+    "id": 2,
+    "artist": "Artist 2",
+    "title": "Album 2",
+    "slug": "artist-2-album-2",
+    "imageUrl": "/album-3.png"
+  },
+  {
+    "id": 3,
+    "artist": "Artist 3",
+    "title": "Album 3",
+    "slug": "artist-3-album-3",
+    "imageUrl": "/album-3.png"
+  }
+]

@@ -3,12 +3,22 @@ import React from "react";
 import { expect } from "chai";
 
 import App from "../../../pages/dig/release";
+import { findBySlug } from "../../../models/Release";
 
 describe("pages/dig/release", () => {
   let app;
+  let release;
 
-  beforeEach(() => {
-    app = render(<App />);
+  beforeEach(async () => {
+    release = await findBySlug("dj-lord-afterburn");
+    app = render(<App release={release} />);
+  });
+
+  it("should getInitialProps", async () => {
+    const initalProps = await App.getInitialProps({
+      query: { slug: "dj-lord-afterburn" }
+    });
+    expect(initalProps).to.deep.equal({ release });
   });
 
   it("should render header", () => {

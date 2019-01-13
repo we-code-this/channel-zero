@@ -5,12 +5,18 @@ import { expect } from "chai";
 import App from "../../pages/index";
 import { fetchHomeProps } from "../../models/utilities";
 
-describe("pages/index", async () => {
+describe("pages/index", () => {
   let app;
-  const props = await fetchHomeProps();
+  let props;
 
-  beforeEach(() => {
+  beforeEach(async () => {
+    props = await fetchHomeProps();
     app = render(<App {...props} />);
+  });
+
+  it("should getInitialProps", async () => {
+    const initalProps = await App.getInitialProps();
+    expect(initalProps).to.deep.equal(props);
   });
 
   it("should render header", () => {
