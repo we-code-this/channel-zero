@@ -1,3 +1,5 @@
+import "isomorphic-unfetch";
+
 const get = async () => {
   const res = await fetch(
     "http://localhost:3000/static/data/home/releases.json"
