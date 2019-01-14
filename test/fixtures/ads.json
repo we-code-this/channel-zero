@@ -1,7 +1,8 @@
 [
   {
+    "id": 1,
     "url": "#",
-    "alt": "Something awesome to promote",
+    "alt": "Test Ad",
     "desktopImageUrl": "/static/files/a/leaderboard.jpg",
     "mobileImageUrl": "/static/files/a/mobile.jpg"
   }
