@@ -1,10 +1,6 @@
 import { get as fetchReleases } from "./Release/releases";
+import { current as fetchAd } from "./Ad/ads";
 import "isomorphic-unfetch";
-
-const fetchAd = async () => {
-  const res = await fetch("http://localhost:3000/static/data/home/ad.json");
-  return await res.json();
-};
 
 const fetchFeature = async () => {
   const res = await fetch(
