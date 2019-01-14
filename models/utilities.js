@@ -1,4 +1,4 @@
-import { get as fetchReleases } from "./Release";
+import { get as fetchReleases } from "./Release/releases";
 import "isomorphic-unfetch";
 
 const fetchAd = async () => {

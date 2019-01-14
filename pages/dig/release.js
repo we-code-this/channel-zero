@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { withRouter } from "next/router";
 import DigHeader from "../../components/common/DigHeader";
 import Layout from "../../components/common/layouts/Layout";
-import { findBySlug } from "../../models/Release";
+import { findBySlug } from "../../models/Release/releases";
 
 class Release extends Component {
   static async getInitialProps({ query: { slug } }) {
