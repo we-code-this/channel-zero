@@ -1,14 +1,8 @@
 import { get as fetchReleases } from "./Release/releases";
 import { current as fetchAd } from "./Ad/ads";
 import { current as fetchFeature } from "./Feature/features";
+import { recent as fetchArticles } from "./Article/articles";
 import "isomorphic-unfetch";
-
-const fetchArticles = async () => {
-  const res = await fetch(
-    "http://localhost:3000/static/data/home/articles.json"
-  );
-  return await res.json();
-};
 
 const fetchHorizontalPromos = async () => {
   const res = await fetch(
