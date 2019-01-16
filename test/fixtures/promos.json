@@ -1,0 +1,65 @@
+[
+  {
+    "id": 1,
+    "name": "Promo 1",
+    "url": "#",
+    "imageUrl": "/promo-1",
+    "location": "horizontal"
+  },
+  {
+    "id": 2,
+    "name": "Promo 2",
+    "url": "#",
+    "imageUrl": "/promo-2",
+    "location": "horizontal"
+  },
+  {
+    "id": 3,
+    "name": "Promo 3",
+    "url": "#",
+    "imageUrl": "/promo-3",
+    "location": "horizontal"
+  },
+  {
+    "id": 4,
+    "name": "Promo 4",
+    "url": "#",
+    "imageUrl": "/promo-4",
+    "location": "horizontal"
+  },
+  {
+    "id": 5,
+    "name": "Promo 5",
+    "url": "#",
+    "imageUrl": "/promo-5",
+    "location": "horizontal"
+  },
+  {
+    "id": 6,
+    "name": "Promo 6",
+    "url": "#",
+    "imageUrl": "/promo-6",
+    "location": "vertical"
+  },
+  {
+    "id": 7,
+    "name": "Promo 7",
+    "url": "#",
+    "imageUrl": "/promo-7",
+    "location": "vertical"
+  },
+  {
+    "id": 8,
+    "name": "Promo 8",
+    "url": "#",
+    "imageUrl": "/promo-8",
+    "location": "vertical"
+  },
+  {
+    "id": 9,
+    "name": "Promo 9",
+    "url": "#",
+    "imageUrl": "/promo-9",
+    "location": "vertical"
+  }
+]
