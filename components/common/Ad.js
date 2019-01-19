@@ -5,7 +5,7 @@ const Ad = props => {
     <div className={adClass}>
       <div className="column-content">
         <a href={props.url}>
-          <img src={props.imageUrl} alt={props.alt} />
+          <img src={`/static/files/a/${props.filename}`} alt={props.alt} />
         </a>
       </div>
     </div>

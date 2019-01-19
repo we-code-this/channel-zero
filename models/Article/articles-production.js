@@ -1,9 +1,7 @@
 import "isomorphic-unfetch";
 
 export async function get() {
-  const res = await fetch(
-    "http://localhost:3000/static/data/home/articles.json"
-  );
+  const res = await fetch(`${process.env.DATA_API_HOST}/articles`);
   return await res.json();
 }
 

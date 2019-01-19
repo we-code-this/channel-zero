@@ -33,7 +33,7 @@ class Index extends Component {
         <Ad
           url={this.state.ad.url}
           alt={this.state.ad.alt}
-          imageUrl={this.state.ad.desktopImageUrl}
+          filename={this.state.ad.desktop_filename}
         />
         <div className="columns">
           <div className="column is-three-fifths">
@@ -51,7 +51,7 @@ class Index extends Component {
         <Ad
           url={this.state.ad.url}
           alt={this.state.ad.alt}
-          imageUrl={this.state.ad.mobileImageUrl}
+          filename={this.state.ad.mobile_filename}
           mobile
         />
       </Layout>
