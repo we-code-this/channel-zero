@@ -12,7 +12,7 @@ export async function get() {
   return promos;
 }
 
-export async function recent(location) {
-  const promos = await (await model()).recent(location);
+export async function recent(location, limit) {
+  const promos = await (await model()).recent(location, limit);
   return promos;
 }

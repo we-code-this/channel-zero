@@ -9,8 +9,8 @@ const fetchHomeProps = async () => {
   const ad = await fetchAd();
   const feature = await fetchFeature();
   const articles = await fetchArticles();
-  const horizontalPromos = await fetchPromos("horizontal");
-  const verticalPromos = await fetchPromos("vertical");
+  const horizontalPromos = await fetchPromos("horizontal", 5);
+  const verticalPromos = await fetchPromos("vertical", 4);
   const releases = await fetchReleases();
 
   return {

@@ -3,7 +3,7 @@ const Promo = props => {
 
   return (
     <a href={props.url} className={classes}>
-      <img src={props.imageUrl} alt={props.name} />
+      <img src={`/static/img/logos/${props.filename}`} alt={props.name} />
     </a>
   );
 };
