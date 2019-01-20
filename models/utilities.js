@@ -1,4 +1,4 @@
-import { get as fetchReleases } from "./Release/releases";
+import { recent as fetchReleases } from "./Release/releases";
 import { current as fetchAd } from "./Ad/ads";
 import { current as fetchFeature } from "./Feature/features";
 import { recent as fetchArticles } from "./Article/articles";

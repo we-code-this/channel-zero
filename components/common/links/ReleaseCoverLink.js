@@ -7,7 +7,10 @@ const ReleaseCoverLink = props => (
     href={`/dig/release?slug=${props.slug}`}
   >
     <a>
-      <img src={props.imageUrl} alt={`${props.artist} - ${props.title}`} />
+      <img
+        src={`/static/files/releases/${props.filename}`}
+        alt={`${props.artist} - ${props.title}`}
+      />
     </a>
   </Link>
 );

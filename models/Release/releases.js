@@ -12,6 +12,11 @@ export async function get() {
   return releases;
 }
 
+export async function recent() {
+  const release = await (await model()).recent();
+  return release;
+}
+
 export async function findBySlug(slug) {
   const release = await (await model()).findBySlug(slug);
   return release;

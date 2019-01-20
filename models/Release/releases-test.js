@@ -15,6 +15,11 @@ export async function get() {
   return JSON.parse(data);
 }
 
+export async function recent() {
+  const releases = await get();
+  return releases;
+}
+
 export async function findBySlug(slug) {
   const releases = await get();
 

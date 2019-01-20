@@ -1,14 +1,16 @@
 import "isomorphic-unfetch";
 
 export async function get() {
-  const res = await fetch(
-    "http://localhost:3000/static/data/home/releases.json"
-  );
+  const res = await fetch(`${process.env.DATA_API_HOST}/releases`);
+  return await res.json();
+}
+
+export async function recent() {
+  const res = await fetch(`${process.env.DATA_API_HOST}/releases/3/desc`);
   return await res.json();
 }
 
 export async function findBySlug(slug) {
-  const releases = await get();
-
-  return releases.filter(release => slug === release.slug)[0];
+  const res = await fetch(`${process.env.DATA_API_HOST}/release/${slug}`);
+  return await res.json();
 }
