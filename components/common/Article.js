@@ -5,7 +5,8 @@ const Article = props => (
         <a href={props.url}>{props.title}</a>
       </h2>
       <p>
-        {props.summary} <a href={props.url}>Read more…</a>
+        {props.summary.replace(/^(.{200}[^\s]*).*/, "$1…")}{" "}
+        <a href={props.url}>Read more…</a>
       </p>
     </div>
   </div>

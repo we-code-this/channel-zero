@@ -29,6 +29,12 @@ section {
   }
 }
 
+.page-inner {
+  section#main {
+    padding-bottom: 3rem;
+  }
+}
+
 img {
   width: 100%;
   height: auto;
@@ -54,6 +60,21 @@ p {
 
 .column-content-inline:last-child {
   margin-bottom: 0;
+}
+
+.wraparound {
+  display: block;
+  padding: 0;
+
+  @media (min-width: $tablet) {
+    float: left;
+    width: 40%;
+    padding: 0 1rem 0 0;
+  }
+
+  @media (min-width: $desktop) {
+    width: 30%;
+  }
 }
 
 .flex {

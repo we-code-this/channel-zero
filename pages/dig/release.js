@@ -19,18 +19,16 @@ class Release extends Component {
     const { release } = this.props;
 
     return (
-      <Layout header={header}>
+      <Layout header={header} inner>
         <h1>{`${release.artist.name} - ${release.title}`}</h1>
-        <div className="columns">
-          <div className="column is-one-third">
+        <div className="is-clearfix">
+          <div className="wraparound is-half-tablet is-one-thirds-desktop">
             <img
               src={`/static/files/releases/${release.filename}`}
               alt={`${release.artist.name} - ${release.title}`}
             />
           </div>
-          <div className="column">
-            <Markdown>{release.description}</Markdown>
-          </div>
+          <Markdown className="content">{release.description}</Markdown>
         </div>
       </Layout>
     );
