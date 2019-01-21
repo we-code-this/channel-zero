@@ -9,7 +9,7 @@ const ReleaseCoverLink = props => (
     <a>
       <img
         src={`/static/files/releases/${props.filename}`}
-        alt={`${props.artist} - ${props.title}`}
+        alt={`${props.artist.name} - ${props.title}`}
       />
     </a>
   </Link>

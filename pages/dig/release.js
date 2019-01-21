@@ -19,7 +19,7 @@ class Release extends Component {
 
     return (
       <Layout header={header}>
-        <h1>{`${release.artist} - ${release.title}`}</h1>
+        <h1>{`${release.artist.name} - ${release.title}`}</h1>
       </Layout>
     );
   }
