@@ -1,14 +1,14 @@
+import getConfig from "next/config";
 import "isomorphic-unfetch";
 
+const { publicRuntimeConfig } = getConfig();
+
 export async function get() {
-  const res = await fetch(
-    "http://localhost:3000/static/data/home/feature.json"
-  );
+  const res = await fetch(`${publicRuntimeConfig.DATA_API_HOST}/features`);
   return await res.json();
 }
 
 export async function current() {
-  const feature = await get();
-
-  return feature;
+  const res = await fetch(`${publicRuntimeConfig.DATA_API_HOST}/feature`);
+  return res.json();
 }
