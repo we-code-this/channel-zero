@@ -1,23 +1,50 @@
 [
   {
     "id": 1,
-    "artist": "Artist 1",
+    "artist_id": 1,
     "title": "Album 1",
     "slug": "artist-1-album-1",
-    "imageUrl": "/album-1.png"
+    "filename": "/album-1.png",
+    "description": "album description",
+    "published": true,
+    "created_at": "2019-01-19 12:00:00",
+    "artist": {
+      "id": 1,
+      "name": "Artist 1",
+      "slug": "artist-1",
+      "created_at": "2019-01-20 12:00:00"
+    }
   },
   {
     "id": 2,
-    "artist": "Artist 2",
+    "artist_id": 2,
     "title": "Album 2",
     "slug": "artist-2-album-2",
-    "imageUrl": "/album-3.png"
+    "filename": "/album-2.png",
+    "description": "album description",
+    "published": true,
+    "created_at": "2019-01-19 12:01:00",
+    "artist": {
+      "id": 2,
+      "name": "Artist 2",
+      "slug": "artist-2",
+      "created_at": "2019-01-20 12:01:00"
+    }
   },
   {
     "id": 3,
-    "artist": "Artist 3",
+    "artist_id": 3,
     "title": "Album 3",
     "slug": "artist-3-album-3",
-    "imageUrl": "/album-3.png"
+    "filename": "/album-3.png",
+    "description": "album description",
+    "published": true,
+    "created_at": "2019-01-19 12:02:00",
+    "artist": {
+      "id": 3,
+      "name": "Artist 3",
+      "slug": "artist-3",
+      "created_at": "2019-01-20 12:02:00"
+    }
   }
 ]
