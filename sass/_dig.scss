@@ -1,0 +1,37 @@
+.vendor-container {
+  background-color: #eee;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+  max-width: 48rem;
+
+  .vendor-label {
+    font-weight: 600;
+    padding: 1rem 0;
+    vertical-align: middle;
+  }
+
+  ul {
+    display: inline;
+
+    li {
+      list-style: none;
+      display: inline-block;
+      padding: 0.5rem;
+      vertical-align: middle;
+    }
+  }
+}
+
+.album-review,
+.album-reviewer {
+  display: block;
+}
+
+.album-review {
+  font-weight: 600;
+}
+
+.album-reviewer {
+  text-align: right;
+  font-size: 0.85rem;
+}

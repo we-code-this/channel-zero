@@ -21,6 +21,12 @@ section {
   min-height: 400px;
 }
 
+section#main {
+  & > h1:first-of-type {
+    margin-top: 0;
+  }
+}
+
 .page-alt {
   section {
     padding-top: 1.5rem;
@@ -60,6 +66,10 @@ p {
 
 .column-content-inline:last-child {
   margin-bottom: 0;
+}
+
+.page-content {
+  max-width: 48rem;
 }
 
 .wraparound {
