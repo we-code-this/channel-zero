@@ -11,36 +11,21 @@ const ReleaseCard = ({ release }) => (
     <div className="card-content">
       <div className="content">
         <ul class="is-unstyled">
-          <li>
-            <strong>Executive Producer:</strong> Chuck D
-          </li>
-          <li>
-            <strong>Album Producer:</strong> C-Doc
-          </li>
-          <li>
-            <strong>Associate Producer:</strong> JP Hesser of Castaway 7
-          </li>
-          <li>
-            <strong>Mastered by:</strong>{" "}
-            <a href="https://defexperience.com">
-              Shawn Franklin at “S.T.O.H.” Labs for TDX (The Definitive
-              Xperience)
-            </a>
-          </li>
-          <li>
-            <strong>Cover Photo by:</strong> Carl Ryder
-          </li>
-          <li>
-            <strong>Additional Photos by:</strong> Eitan Miskevich
-          </li>
-          <li>
-            <strong>Cover Design by:</strong> Kelvin Fonville
-          </li>
-          <li>
-            <strong>Additional Design and Layout by:</strong> DC Snyder
-          </li>
+          {release.credits.map(credit => {
+            const value = credit.url ? (
+              <a href={credit.url}>{credit.value}</a>
+            ) : (
+              credit.value
+            );
+
+            return (
+              <li key={`credit-${credit.id}`}>
+                <strong>{credit.label}:</strong> {value}
+              </li>
+            );
+          })}
         </ul>
-        <hr />
+        {release.credits.length ? <hr /> : ""}
         <p>
           <span class="album-review">
             “Incredible album! Not to be missed!”
