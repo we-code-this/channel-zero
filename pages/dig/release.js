@@ -3,6 +3,7 @@ import Markdown from "markdown-to-jsx";
 import { withRouter } from "next/router";
 import DigHeader from "../../components/common/DigHeader";
 import Layout from "../../components/common/layouts/Layout";
+import Vendors from "../../components/common/Vendors";
 import { findBySlug } from "../../models/Release/releases";
 
 class Release extends Component {
@@ -12,38 +13,6 @@ class Release extends Component {
     return {
       release
     };
-  }
-
-  vendors() {
-    const vendors = this.props.release.vendors;
-    let output = "";
-
-    if (vendors.length) {
-      output = (
-        <div className="vendor-container">
-          <span className="vendor-label">Buy/Stream</span>{" "}
-          <ul>
-            {vendors.map(vendor => (
-              <li key={`vendor-${vendor.id}`}>
-                <a
-                  href={vendor.url}
-                  className="button is-small is-info is-radiusless"
-                >
-                  <span className="icon is-small">
-                    <svg className="svg-icon">
-                      <use xlinkHref={`#icon-${vendor.icon_class}`} />
-                    </svg>
-                  </span>
-                  <span>{vendor.name}</span>
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      );
-    }
-
-    return output;
   }
 
   render() {
@@ -117,7 +86,7 @@ class Release extends Component {
             </div>
           </div>
           <div className="column">
-            {this.vendors()}
+            <Vendors vendors={release.vendors} />
             <Markdown className="content page-content">
               {release.description}
             </Markdown>

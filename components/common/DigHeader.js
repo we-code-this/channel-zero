@@ -8,9 +8,11 @@ const DigHeader = () => (
           <img src="/static/img/logo.svg" alt="Channel Zero logo" />
         </a>
       </Link>
-      <span className="dig-logo">
-        <img src="/static/img/logos/dig-the-dig.svg" alt="DigTheDig" />
-      </span>
+      <Link prefetch href="/dig">
+        <a className="dig-logo">
+          <img src="/static/img/logos/dig-the-dig.svg" alt="DigTheDig" />
+        </a>
+      </Link>
     </div>
   </div>
 );
