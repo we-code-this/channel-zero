@@ -1,3 +1,5 @@
+import ReleaseCreditList from "./ReleaseCreditList";
+
 const ReleaseCard = ({ release }) => (
   <div className="card">
     <div className="card-image">
@@ -10,21 +12,7 @@ const ReleaseCard = ({ release }) => (
     </div>
     <div className="card-content">
       <div className="content">
-        <ul class="is-unstyled">
-          {release.credits.map(credit => {
-            const value = credit.url ? (
-              <a href={credit.url}>{credit.value}</a>
-            ) : (
-              credit.value
-            );
-
-            return (
-              <li key={`credit-${credit.id}`}>
-                <strong>{credit.label}:</strong> {value}
-              </li>
-            );
-          })}
-        </ul>
+        <ReleaseCreditList credits={release.credits} />
         {release.credits.length ? <hr /> : ""}
         <p>
           <span class="album-review">
