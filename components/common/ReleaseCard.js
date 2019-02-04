@@ -1,4 +1,5 @@
 import ReleaseCreditList from "./ReleaseCreditList";
+import EndorsementList from "./EndorsementList";
 
 const ReleaseCard = ({ release }) => (
   <div className="card">
@@ -14,18 +15,7 @@ const ReleaseCard = ({ release }) => (
       <div className="content">
         <ReleaseCreditList credits={release.credits} />
         {release.credits.length ? <hr /> : ""}
-        <p>
-          <span class="album-review">
-            “Incredible album! Not to be missed!”
-          </span>{" "}
-          <span class="album-reviewer">- Someone</span>
-        </p>
-        <p>
-          <span class="album-review">
-            “Among my favorite albums of the year!”
-          </span>{" "}
-          <span class="album-reviewer">- Another Person</span>
-        </p>
+        <EndorsementList endorsements={release.endorsements} />
       </div>
     </div>
   </div>
