@@ -1,7 +1,7 @@
 import ReleaseCredit from "./ReleaseCredit";
 
 const ReleaseCreditList = ({ credits }) => (
-  <ul class="is-unstyled">
+  <ul className="is-unstyled">
     {credits.map(credit => {
       return (
         <li key={`credit-${credit.id}`}>

@@ -9,8 +9,8 @@ const Endorsement = props => {
 
   return (
     <React.Fragment>
-      <span class="album-review">“{props.review}”</span>{" "}
-      <span class="album-reviewer">- {reviewer}</span>
+      <span className="album-review">“{props.review}”</span>{" "}
+      <span className="album-reviewer">- {reviewer}</span>
     </React.Fragment>
   );
 };

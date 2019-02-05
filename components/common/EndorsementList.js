@@ -1,7 +1,7 @@
 import Endorsement from "./Endorsement";
 
 const EndorsementList = ({ endorsements }) => (
-  <ul class="is-unstyled">
+  <ul className="is-unstyled">
     {endorsements.map(endorsement => {
       return (
         <li key={`endorsement-${endorsement.id}`}>
