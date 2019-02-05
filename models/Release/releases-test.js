@@ -1,7 +1,7 @@
 import fs from "fs-extra";
 import path from "path";
 
-export async function get() {
+export async function get(params = {}) {
   const filePath = path.join(
     __dirname,
     "/../",

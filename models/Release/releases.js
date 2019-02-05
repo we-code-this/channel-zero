@@ -7,8 +7,8 @@ async function model() {
   return ReleasesModule;
 }
 
-export async function get() {
-  const releases = await (await model()).get();
+export async function get(params = {}) {
+  const releases = await (await model()).get(params);
   return releases;
 }
 

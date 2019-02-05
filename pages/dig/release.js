@@ -22,7 +22,7 @@ class Release extends Component {
 
     return (
       <Layout header={header} inner>
-        <h1 class="title">{release.title}</h1>
+        <h1 className="title">{release.title}</h1>
         <h2 className="subtitle">{release.artist.name}</h2>
         <div className="columns">
           <div className="column is-half-tablet is-one-third-desktop">
