@@ -6,4 +6,4 @@ Developed utilizing [Next.js](https://nextjs.org/), the server-side rendering li
 
 More details to come.
 
-_(Work in progress. Heavily under development.)_
+_(Work in progress. Heavily in development.)_
