@@ -13,9 +13,15 @@ app
   .then(() => {
     const server = express();
 
-    server.use(handler).get("*", (req, res) => {
-      return handle(req, res);
-    });
+    // if (ADMIN_ROOT !== "admin") {
+    //   server.use(handler).get("admin", (req, res) => {
+    //     return handle(req, res);
+    //   });
+    // }
+
+    // server.use(handler).get("*", (req, res) => {
+    //   return handle(req, res);
+    // });
 
     server.use(handler).listen(3000, err => {
       if (err) throw err;
