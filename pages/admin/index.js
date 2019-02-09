@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Layout from "../../components/common/layouts/Layout";
+import Layout from "../../components/common/layouts/AdminLayout";
 import "isomorphic-unfetch";
 
 class Index extends Component {
