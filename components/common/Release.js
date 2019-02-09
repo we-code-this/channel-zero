@@ -1,16 +1,11 @@
-import Link from "next/link";
+import { Link } from "../../routes";
 import ReleaseCoverLink from "./links/ReleaseCoverLink";
-import dig from "../../lib/paths/dig";
 
 const Release = props => (
   <div className="column-content-inline release">
     <div className="release-info">
       <h2 className="title is-4">
-        <Link
-          prefetch
-          as={dig.releaseAs(props.slug)}
-          href={dig.release(props.slug)}
-        >
+        <Link prefetch route="dig/release" params={{ slug: props.slug }}>
           <a>{props.title}</a>
         </Link>
       </h2>

@@ -1,5 +1,4 @@
 import Link from "next/link";
-
 import staticPaths from "../../lib/paths/static";
 
 const DigHeader = () => (
