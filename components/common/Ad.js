@@ -1,3 +1,5 @@
+import staticPaths from "../../lib/paths/static";
+
 const Ad = props => {
   let adClass = props.mobile ? "m-a" : "l-a";
 
@@ -5,7 +7,7 @@ const Ad = props => {
     <div className={adClass}>
       <div className="column-content">
         <a href={props.url}>
-          <img src={`/static/files/a/${props.filename}`} alt={props.alt} />
+          <img src={staticPaths.ad(props.filename)} alt={props.alt} />
         </a>
       </div>
     </div>

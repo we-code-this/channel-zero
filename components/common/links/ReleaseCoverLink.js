@@ -1,14 +1,13 @@
 import Link from "next/link";
 
+import dig from "../../../lib/paths/dig";
+import staticPaths from "../../../lib/paths/static";
+
 const ReleaseCoverLink = props => (
-  <Link
-    prefetch
-    as={`/dig/release/${props.slug}`}
-    href={`/dig/release?slug=${props.slug}`}
-  >
+  <Link prefetch as={dig.releaseAs(props.slug)} href={dig.release(props.slug)}>
     <a>
       <img
-        src={`/static/files/releases/${props.filename}`}
+        src={staticPaths.release(props.filename)}
         alt={`${props.artist.name} - ${props.title}`}
       />
     </a>

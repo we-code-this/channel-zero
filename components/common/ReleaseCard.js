@@ -1,12 +1,14 @@
 import ReleaseCreditList from "./ReleaseCreditList";
 import EndorsementList from "./EndorsementList";
 
+import staticPaths from "../../lib/paths/static";
+
 const ReleaseCard = ({ release }) => (
   <div className="card">
     <div className="card-image">
       <figure className="image">
         <img
-          src={`/static/files/releases/${release.filename}`}
+          src={staticPaths.release(release.filename)}
           alt={`${release.artist.name} - ${release.title}`}
         />
       </figure>

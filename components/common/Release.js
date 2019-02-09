@@ -1,5 +1,6 @@
 import Link from "next/link";
 import ReleaseCoverLink from "./links/ReleaseCoverLink";
+import dig from "../../lib/paths/dig";
 
 const Release = props => (
   <div className="column-content-inline release">
@@ -7,8 +8,8 @@ const Release = props => (
       <h2 className="title is-4">
         <Link
           prefetch
-          as={`/dig/release/${props.slug}`}
-          href={`/dig/release?slug=${props.slug}`}
+          as={dig.releaseAs(props.slug)}
+          href={dig.release(props.slug)}
         >
           <a>{props.title}</a>
         </Link>
