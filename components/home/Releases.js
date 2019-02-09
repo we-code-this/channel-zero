@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Columns } from "react-bulma-components";
 import Release from "../common/Release";
 
 class Releases extends Component {
@@ -12,11 +13,11 @@ class Releases extends Component {
 
   render() {
     return (
-      <div className="column">
+      <Columns.Column>
         {this.state.releases.map(release => (
           <Release key={release.id} {...release} />
         ))}
-      </div>
+      </Columns.Column>
     );
   }
 }

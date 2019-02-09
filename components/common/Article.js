@@ -1,5 +1,7 @@
+import { Columns } from "react-bulma-components";
+
 const Article = props => (
-  <div className="column article">
+  <Columns.Column className="article">
     <div className="column-content">
       <h2 className="title is-4">
         <a href={props.url}>{props.title}</a>
@@ -9,7 +11,7 @@ const Article = props => (
         <a href={props.url}>Read more…</a>
       </p>
     </div>
-  </div>
+  </Columns.Column>
 );
 
 export default Article;

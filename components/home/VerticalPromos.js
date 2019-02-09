@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Columns } from "react-bulma-components";
 import Promo from "../common/Promo";
 
 class VerticalPromos extends Component {
@@ -12,7 +13,7 @@ class VerticalPromos extends Component {
 
   render() {
     return (
-      <div className="column">
+      <Columns.Column>
         {this.state.promos.map(promo => {
           return (
             <div className="column-content-inline" key={promo.id}>
@@ -20,7 +21,7 @@ class VerticalPromos extends Component {
             </div>
           );
         })}
-      </div>
+      </Columns.Column>
     );
   }
 }

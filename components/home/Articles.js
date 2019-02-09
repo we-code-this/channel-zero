@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Columns } from "react-bulma-components";
 import Article from "../common/Article";
 
 class Articles extends Component {
@@ -26,11 +27,11 @@ class Articles extends Component {
       <React.Fragment>
         {articleRows.map((row, index) => {
           return (
-            <div className="columns" key={`row-${index}`}>
+            <Columns key={`row-${index}`}>
               {row.map(article => {
                 return <Article {...article} key={`article-${article.id}`} />;
               })}
-            </div>
+            </Columns>
           );
         })}
       </React.Fragment>

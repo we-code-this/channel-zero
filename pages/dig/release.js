@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Markdown from "markdown-to-jsx";
 import { withRouter } from "next/router";
+import { Columns } from "react-bulma-components";
 import DigHeader from "../../components/common/DigHeader";
 import Layout from "../../components/common/layouts/Layout";
 import Vendors from "../../components/common/Vendors";
@@ -24,17 +25,20 @@ class Release extends Component {
       <Layout header={header} inner>
         <h1 className="title">{release.title}</h1>
         <h2 className="subtitle">{release.artist.name}</h2>
-        <div className="columns">
-          <div className="column is-half-tablet is-one-third-desktop">
+        <Columns>
+          <Columns.Column
+            tablet={{ size: "half" }}
+            desktop={{ size: "one-third" }}
+          >
             <ReleaseCard release={release} />
-          </div>
-          <div className="column">
+          </Columns.Column>
+          <Columns.Column>
             <Vendors vendors={release.vendors} />
             <Markdown className="content page-content">
               {release.description}
             </Markdown>
-          </div>
-        </div>
+          </Columns.Column>
+        </Columns>
       </Layout>
     );
   }

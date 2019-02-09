@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Columns } from "react-bulma-components";
 import Promo from "../common/Promo";
 
 class HorizontalPromos extends Component {
@@ -12,17 +13,17 @@ class HorizontalPromos extends Component {
 
   render() {
     return (
-      <div className="columns">
+      <Columns>
         {this.state.promos.map(promo => {
           return (
-            <div className="column" key={promo.id}>
+            <Columns.Column key={promo.id}>
               <div className="column-content">
                 <Promo {...promo} className="flex" />
               </div>
-            </div>
+            </Columns.Column>
           );
         })}
-      </div>
+      </Columns>
     );
   }
 }

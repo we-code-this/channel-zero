@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { withRouter } from "next/router";
+import { Columns } from "react-bulma-components";
 import DigHeader from "../../components/common/DigHeader";
 import Layout from "../../components/common/layouts/Layout";
 import Release from "../../components/common/Release";
@@ -21,13 +22,13 @@ class Index extends Component {
     return (
       <Layout header={header} inner>
         <h1 className="title">Dig The Dig</h1>
-        <div className="columns is-multiline">
+        <Columns>
           {releases.map(release => (
-            <div key={release.id} className="column is-one-quarter">
+            <Columns.Column key={release.id} size="one-quarter">
               <Release {...release} />
-            </div>
+            </Columns.Column>
           ))}
-        </div>
+        </Columns>
       </Layout>
     );
   }

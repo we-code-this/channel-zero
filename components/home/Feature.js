@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Columns } from "react-bulma-components";
 import Article from "../common/Article";
 
 class Feature extends Component {
@@ -13,7 +14,7 @@ class Feature extends Component {
 
   renderVideo() {
     return (
-      <div className="column is-two-thirds" id="feature">
+      <Columns.Column size="two-thirds" id="feature">
         <div className="column-content">
           <div className="video-container">
             <iframe
@@ -24,17 +25,17 @@ class Feature extends Component {
             />
           </div>
         </div>
-      </div>
+      </Columns.Column>
     );
   }
 
   render() {
     // this.state.video is not required
     return (
-      <div className="columns">
+      <Columns>
         <Article {...this.state.article} />
         {this.state.video ? this.renderVideo() : undefined}
-      </div>
+      </Columns>
     );
   }
 }

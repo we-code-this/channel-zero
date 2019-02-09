@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Columns } from "react-bulma-components";
 import Ad from "../components/common/Ad";
 import Articles from "../components/home/Articles";
 import Feature from "../components/home/Feature";
@@ -35,18 +36,18 @@ class Index extends Component {
           alt={this.state.ad.alt}
           filename={this.state.ad.desktop_filename}
         />
-        <div className="columns">
-          <div className="column is-three-fifths">
+        <Columns>
+          <Columns.Column size="three-fifths">
             <Feature {...this.state.feature} />
             <Articles articles={this.state.articles} />
-          </div>
-          <div className="column">
-            <div className="columns">
+          </Columns.Column>
+          <Columns.Column>
+            <Columns>
               <Releases releases={this.state.releases} />
               <VerticalPromos promos={this.state.verticalPromos} />
-            </div>
-          </div>
-        </div>
+            </Columns>
+          </Columns.Column>
+        </Columns>
         <HorizontalPromos promos={this.state.horizontalPromos} />
         <Ad
           url={this.state.ad.url}
