@@ -13,7 +13,7 @@ const ReleaseCard = ({ release }) => (
     </div>
     <div className="card-content">
       <div className="content">
-        <ReleaseCreditList credits={release.credits} />
+        <ReleaseCreditList credits={release.credits} label={release.label} />
         {release.credits.length ? <hr /> : ""}
         <EndorsementList endorsements={release.endorsements} />
       </div>
