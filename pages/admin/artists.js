@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Layout from "../../components/common/layouts/AdminLayout";
 import "isomorphic-unfetch";
 
-class Index extends Component {
+class Artists extends Component {
   static async getInitialProps() {
     // return await fetchHomeProps();
   }
@@ -14,8 +14,8 @@ class Index extends Component {
   }
 
   render() {
-    return <Layout page="Dashboard">Admin</Layout>;
+    return <Layout page="Artists">Artists</Layout>;
   }
 }
 
-export default Index;
+export default Artists;

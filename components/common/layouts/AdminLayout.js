@@ -4,7 +4,7 @@ import Nav from "../admin/Nav";
 
 import "../../../sass/admin.scss";
 
-const AdminLayout = ({ children, title = "Channel Zero" }) => {
+const AdminLayout = ({ children, page = "Admin", title = "Channel Zero" }) => {
   return (
     <React.Fragment>
       <Head>
@@ -20,7 +20,7 @@ const AdminLayout = ({ children, title = "Channel Zero" }) => {
       <div className="admin">
         <Nav />
         <section className="main">
-          <Header />
+          <Header title={page} />
           <div className="pageContent">{children}</div>
         </section>
       </div>

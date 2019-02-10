@@ -1,3 +1,7 @@
-const Header = props => <header>Admin Header</header>;
+const Header = props => (
+  <header>
+    <div className="title is-4">{props.title}</div>
+  </header>
+);
 
 export default Header;
