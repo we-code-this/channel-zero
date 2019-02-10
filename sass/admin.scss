@@ -3,69 +3,51 @@
 .admin {
   background: #fff;
   display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 
-  .navbar {
-    background-color: #ddd;
+  header {
+    display: flex;
+    background-color: #333;
+    padding: 0.5rem 1rem;
 
-    .navbar-brand {
-      .navbar-item {
-        padding: 0;
-        color: #000;
+    &,
+    a,
+    .title {
+      color: #eee;
+    }
 
-        .icon {
-          width: 100%;
-          height: auto;
+    .brand {
+      padding-right: 1rem;
 
-          .svg-icon {
-            width: 60%;
-            height: auto;
-          }
+      .icon {
+        vertical-align: middle;
+        width: auto;
+        height: auto;
+
+        .svg-icon {
+          width: 6rem;
+          height: 3rem;
         }
       }
     }
-  }
 
-  header {
-    background-color: #333;
-    padding: 1rem;
-
-    &,
-    .title {
-      color: #fff;
+    @media (min-width: $tablet) {
+      align-items: center;
     }
   }
 
   @media (min-width: $tablet) {
-    .navbar {
-      flex-basis: 20%;
-      height: 100vh;
-
-      @media (min-width: $tablet) {
-        flex-direction: column;
-      }
-
-      .navbar-menu {
-        flex-direction: column;
-      }
-
-      .navbar-start {
-        margin: 0;
-        flex-direction: column;
-
-        .navbar-item {
-          width: 100%;
-          text-align: center;
-          display: block;
-        }
-      }
-    }
-
-    .main {
+    .admin-main {
       display: flex;
-      flex-basis: 80%;
-      flex-direction: column;
-      height: 100vh;
+      flex-direction: row;
+      flex-grow: 1;
       padding: 0;
+
+      .admin-menu {
+        background-color: #ddd;
+        flex-basis: 20%;
+      }
 
       .pageContent {
         flex-grow: 1;

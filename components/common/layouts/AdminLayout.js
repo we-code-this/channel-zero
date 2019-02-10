@@ -18,9 +18,9 @@ const AdminLayout = ({ children, page = "Admin", title = "Channel Zero" }) => {
         <link rel="icon" type="image/png" href="/static/img/favicon.png" />
       </Head>
       <div className="admin">
-        <Nav />
-        <section className="main">
-          <Header title={page} />
+        <Header title={page} />
+        <section className="admin-main">
+          <Nav />
           <div className="pageContent">{children}</div>
         </section>
       </div>

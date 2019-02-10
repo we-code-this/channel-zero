@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import getConfig from "next/config";
-import { Navbar, Icon } from "react-bulma-components";
 import { Link } from "../../../routes";
 
 const { publicRuntimeConfig } = getConfig();
@@ -17,35 +16,33 @@ class Nav extends Component {
 
   render() {
     return (
-      <Navbar>
-        <Navbar.Brand>
-          <Navbar.Item renderAs="a" href="#">
-            <Icon>
-              <svg className="svg-icon">
-                <use xlinkHref="#icon-cz" />
-              </svg>
-            </Icon>
-          </Navbar.Item>
-          <Navbar.Burger
-            active={this.state.open.toString()}
-            onClick={() =>
-              this.setState(state => {
-                open: !state.open;
-              })
-            }
-          />
-        </Navbar.Brand>
-        <Navbar.Menu active={this.state.open.toString()}>
-          <Navbar.Container>
+      <nav className="admin-menu">
+        <ul className="is-unstyled">
+          <li>
             <Link href={`/${ADMIN_ROOT}/artists`}>
               <a className="navbar-item">Artists</a>
             </Link>
-            <Navbar.Item href="#">Labels</Navbar.Item>
-            <Navbar.Item href="#">Releases</Navbar.Item>
-            <Navbar.Item href="#">Vendors</Navbar.Item>
-          </Navbar.Container>
-        </Navbar.Menu>
-      </Navbar>
+          </li>
+
+          <li>
+            <Link href="#">
+              <a className="navbar-item">Labels</a>
+            </Link>
+          </li>
+
+          <li>
+            <Link href="#">
+              <a className="navbar-item">Releases</a>
+            </Link>
+          </li>
+
+          <li>
+            <Link href="#">
+              <a className="navbar-item">Vendors</a>
+            </Link>
+          </li>
+        </ul>
+      </nav>
     );
   }
 }
