@@ -49,10 +49,14 @@
         flex-basis: 20%;
       }
 
-      .pageContent {
+      .page-content {
         flex-grow: 1;
-        // background-color: salmon;
+        max-width: 64rem;
         overflow-y: scroll;
+      }
+
+      .admin-content-panel {
+        padding: 1rem;
       }
     }
 

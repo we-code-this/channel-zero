@@ -12,6 +12,10 @@ export async function get(params = {}) {
   return releases;
 }
 
+export async function count() {
+  return await (await model()).count();
+}
+
 export async function findBySlug(slug) {
   const release = await (await model()).findBySlug(slug);
   return release;

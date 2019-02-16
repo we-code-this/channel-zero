@@ -17,6 +17,12 @@ export async function get(params = {}) {
   return await res.json();
 }
 
+export async function count() {
+  const res = await fetch(`${publicRuntimeConfig.DATA_API_HOST}/artists/count`);
+
+  return (await res.json())[0].count;
+}
+
 export async function findBySlug(slug) {
   const res = await fetch(
     `${publicRuntimeConfig.DATA_API_HOST}/artist/${slug}`
