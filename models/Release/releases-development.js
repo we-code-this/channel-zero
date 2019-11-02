@@ -1,11 +1,9 @@
-import getConfig from "next/config";
 import "isomorphic-unfetch";
-
-const { publicRuntimeConfig } = getConfig();
+import host from "../../lib/host";
 
 export async function get(params = {}) {
   const order = params.order ? params.order.toUpperCase() : "DESC";
-  let url = `${publicRuntimeConfig.DATA_API_HOST}/releases`;
+  let url = host("/api/releases");
 
   if (params.start && params.limit) {
     url = `${url}/range/${params.start}/${params.limit}/${order}`;
@@ -18,15 +16,12 @@ export async function get(params = {}) {
 }
 
 export async function recent() {
-  const res = await fetch(
-    `${publicRuntimeConfig.DATA_API_HOST}/releases/4/desc`
-  );
+  const res = await fetch(host("/api/releases/4/desc"));
   return await res.json();
 }
 
 export async function findBySlug(slug) {
-  const res = await fetch(
-    `${publicRuntimeConfig.DATA_API_HOST}/release/${slug}`
-  );
+  console.log('url:', host(`/api/release/${slug}`));
+  const res = await fetch(host(`/api/release/${slug}`));
   return await res.json();
 }

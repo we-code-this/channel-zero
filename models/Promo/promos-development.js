@@ -1,16 +1,14 @@
-import getConfig from "next/config";
 import "isomorphic-unfetch";
-
-const { publicRuntimeConfig } = getConfig();
+import host from "../../lib/host";
 
 export async function get() {
-  const res = await fetch(`${publicRuntimeConfig.DATA_API_HOST}/promos`);
+  const res = await fetch(host("/api/promos"));
   return await res.json();
 }
 
 export async function recent(location, limit) {
   const res = await fetch(
-    `${publicRuntimeConfig.DATA_API_HOST}/promos/placement/${location}/${limit}`
+    host(`/api/promos/placement/${location}/${limit}`)
   );
   return await res.json();
 }

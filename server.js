@@ -5,6 +5,20 @@ const next = require("next");
 const routes = require("./routes");
 
 const dev = process.env.NODE_ENV !== "production";
+
+const devProxy = {
+  '/api': {
+    target: process.env.API_PROXY_TARGET,
+    pathRewrite: { '^/api': '/api' },
+    changeOrigin: true
+  },
+  '/files': {
+    target: process.env.FILE_PROXY_TARGET,
+    pathRewrite: { '^/files': '/channelzero/files' },
+    changeOrigin: true
+  },
+}
+
 const app = next({ dev });
 const handler = routes.getRequestHandler(app);
 
@@ -13,15 +27,12 @@ app
   .then(() => {
     const server = express();
 
-    // if (ADMIN_ROOT !== "admin") {
-    //   server.use(handler).get("admin", (req, res) => {
-    //     return handle(req, res);
-    //   });
-    // }
-
-    // server.use(handler).get("*", (req, res) => {
-    //   return handle(req, res);
-    // });
+    if (dev && devProxy) {
+      const proxyMiddleware = require('http-proxy-middleware');
+      Object.keys(devProxy).forEach(function (context) {
+        server.use(proxyMiddleware(context, devProxy[context]))
+      });
+    }
 
     server.use(handler).listen(3002, err => {
       if (err) throw err;

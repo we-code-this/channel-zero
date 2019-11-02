@@ -4,12 +4,12 @@ import "isomorphic-unfetch";
 const { publicRuntimeConfig } = getConfig();
 
 export async function get() {
-  const res = await fetch(`${publicRuntimeConfig.DATA_API_HOST}/features`);
+  const res = await fetch(`${publicRuntimeConfig.APP_HOST}/api/features`);
   return await res.json();
 }
 
 export async function current() {
-  const feature = await fetch(`${publicRuntimeConfig.DATA_API_HOST}/feature`);
+  const feature = await fetch(`${publicRuntimeConfig.APP_HOST}/api/feature`);
 
   return feature;
 }
