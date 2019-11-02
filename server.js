@@ -14,7 +14,7 @@ const devProxy = {
   },
   '/files': {
     target: process.env.FILE_PROXY_TARGET,
-    pathRewrite: { '^/files': '/channelzero/files' },
+    pathRewrite: { '^/files': process.env.FILE_ROOT_PATH },
     changeOrigin: true
   },
 }
