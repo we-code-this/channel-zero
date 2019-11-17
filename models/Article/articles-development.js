@@ -7,8 +7,6 @@ export async function get() {
 }
 
 export async function recent() {
-  const res = await fetch(
-    host("/api/articles/6/desc")
-  );
+  const res = await fetch(host("/api/articles/6/desc"));
   return await res.json();
 }

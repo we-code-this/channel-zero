@@ -6,7 +6,7 @@ const routes = require("./routes");
 
 const dev = process.env.NODE_ENV !== "production";
 
-const devProxy = {
+const proxy = {
   '/api': {
     target: process.env.API_PROXY_TARGET,
     pathRewrite: { '^/api': '/api' },
@@ -27,12 +27,10 @@ app
   .then(() => {
     const server = express();
 
-    if (dev && devProxy) {
-      const proxyMiddleware = require('http-proxy-middleware');
-      Object.keys(devProxy).forEach(function (context) {
-        server.use(proxyMiddleware(context, devProxy[context]))
-      });
-    }
+    const proxyMiddleware = require('http-proxy-middleware');
+    Object.keys(proxy).forEach(function (context) {
+      server.use(proxyMiddleware(context, proxy[context]))
+    });
 
     server.use(handler).listen(3002, err => {
       if (err) throw err;
