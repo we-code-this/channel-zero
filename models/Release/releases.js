@@ -8,16 +8,34 @@ async function model() {
 }
 
 export async function get(params = {}) {
-  const releases = await (await model()).get(params);
+  let releases;
+  try {
+    releases = await (await model()).get(params);
+  } catch (e) {
+    releases = [];
+  }
+
   return releases;
 }
 
 export async function recent() {
-  const release = await (await model()).recent();
-  return release;
+  let releases;
+  try {
+    releases = await (await model()).recent();
+  } catch (e) {
+    releases = [];
+  }
+  
+  return releases;
 }
 
 export async function findBySlug(slug) {
-  const release = await (await model()).findBySlug(slug);
+  let release;
+  try {
+    release = await (await model()).findBySlug(slug);
+  } catch (e) {
+    release = undefined;
+  }
+
   return release;
 }

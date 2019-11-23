@@ -31,14 +31,14 @@ class Index extends Component {
   render() {
     return (
       <Layout>
-        <Ad
+        {this.state.ad && <Ad
           url={this.state.ad.url}
           alt={this.state.ad.alt}
           filename={this.state.ad.desktop_filename}
-        />
+        />}
         <Columns>
           <Columns.Column size="three-fifths">
-            <Feature {...this.state.feature} />
+            {this.state.feature && <Feature {...this.state.feature} />}
             <Articles articles={this.state.articles} />
           </Columns.Column>
           <Columns.Column>
@@ -49,12 +49,12 @@ class Index extends Component {
           </Columns.Column>
         </Columns>
         <HorizontalPromos promos={this.state.horizontalPromos} />
-        <Ad
+        {this.state.ad && <Ad
           url={this.state.ad.url}
           alt={this.state.ad.alt}
           filename={this.state.ad.mobile_filename}
           mobile
-        />
+        />}
       </Layout>
     );
   }

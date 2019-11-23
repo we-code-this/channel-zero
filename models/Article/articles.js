@@ -8,11 +8,23 @@ async function model() {
 }
 
 export async function get() {
-  const articles = await (await model()).get();
+  let articles;
+  try {
+    articles = await (await model()).get();
+  } catch (e) {
+    articles = [];
+  }
+
   return articles;
 }
 
 export async function recent() {
-  const article = await (await model()).recent();
-  return article;
+  let articles;
+  try {
+    articles = await (await model()).recent();
+  } catch (e) {
+    articles = [];
+  }
+  
+  return articles;
 }

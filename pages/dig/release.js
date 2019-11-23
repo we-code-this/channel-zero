@@ -17,12 +17,10 @@ class Release extends Component {
     };
   }
 
-  render() {
-    const header = <DigHeader />;
+  renderRelease() {
     const { release } = this.props;
 
-    return (
-      <Layout header={header} inner>
+    return (<>
         <h1 className="title">{release.title}</h1>
         <h2 className="subtitle">{release.artist.name}</h2>
         <Columns>
@@ -39,6 +37,14 @@ class Release extends Component {
             </Markdown>
           </Columns.Column>
         </Columns>
+    </>);
+  }
+
+  render() {
+    const header = <DigHeader />;
+    return (
+      <Layout header={header} inner>
+        {this.props.release && this.renderRelease()}
       </Layout>
     );
   }

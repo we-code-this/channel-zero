@@ -13,6 +13,12 @@ export async function get() {
 }
 
 export async function current() {
-  const feature = await (await model()).current();
+  let feature;
+  try {
+    feature = await (await model()).current();
+  } catch (e) {
+    feature = undefined;
+  }
+  
   return feature;
 }

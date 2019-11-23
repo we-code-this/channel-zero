@@ -13,6 +13,12 @@ export async function get() {
 }
 
 export async function current() {
-  const ad = await (await model()).current();
+  let ad;
+  try {
+    ad = await (await model()).current();
+  } catch (e) {
+    ad = undefined;
+  }
+  
   return ad;
 }

@@ -8,11 +8,23 @@ async function model() {
 }
 
 export async function get() {
-  const promos = await (await model()).get();
+  let promos;
+  try {
+    promos = await (await model()).get();
+  } catch (e) {
+    promos = [];
+  }
+  
   return promos;
 }
 
 export async function recent(location, limit) {
-  const promos = await (await model()).recent(location, limit);
+  let promos;
+  try {
+    promos = await (await model()).recent(location, limit);
+  } catch (e) {
+    promos = [];
+  }
+
   return promos;
 }
