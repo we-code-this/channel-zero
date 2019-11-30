@@ -25,3 +25,9 @@ export async function findBySlug(slug) {
 
   return releases.filter(release => slug === release.slug)[0];
 }
+
+export default {
+  get,
+  recent,
+  findBySlug
+};

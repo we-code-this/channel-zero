@@ -33,6 +33,15 @@
         "name": "Vendor 3",
         "icon_class": "vendor-3"
       }
+    ],
+    "credits": [
+      {
+        "id": 1,
+        "label": "Credit label",
+        "value": "Credit value",
+        "url": "http://example.com",
+        "created_at": "2019-02-03 12:00:00"
+      },
     ]
   },
   {
@@ -66,7 +75,8 @@
         "name": "Vendor 3",
         "icon_class": "vendor-3"
       }
-    ]
+    ],
+    "credits": []
   },
   {
     "id": 3,
@@ -99,6 +109,7 @@
         "name": "Vendor 3",
         "icon_class": "vendor-3"
       }
-    ]
+    ],
+    "credits": []
   }
 ]

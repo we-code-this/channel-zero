@@ -1,8 +1,21 @@
+import test from './releases-test';
+import development from './releases-development';
+import production from './releases-production';
+
 let ReleasesModule;
 
-async function model() {
+function model() {
   if (ReleasesModule) return ReleasesModule;
-  ReleasesModule = await import(`./releases-${process.env.NODE_ENV}`);
+  switch(process.env.NODE_ENV) {
+    case 'test':
+      ReleasesModule = test;
+      break;
+    case 'development':
+      ReleasesModule = development;
+      break;
+    case 'production':
+      ReleasesModule = production;
+  }
 
   return ReleasesModule;
 }
@@ -32,7 +45,7 @@ export async function recent() {
 export async function findBySlug(slug) {
   let release;
   try {
-    release = await (await model()).findBySlug(slug);
+    release = await model().findBySlug(slug);
   } catch (e) {
     release = undefined;
   }

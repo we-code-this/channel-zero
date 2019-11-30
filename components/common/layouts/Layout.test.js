@@ -1,9 +1,11 @@
-import { render } from "enzyme";
+import Enzyme, { render } from "enzyme";
+import Adapter from "enzyme-adapter-react-16";
 import React from "react";
 import { expect } from "chai";
+import Layout from "./Layout";
+import DigHeader from "../DigHeader";
 
-import Layout from "../../../../components/common/layouts/Layout";
-import DigHeader from "../../../../components/common/DigHeader";
+Enzyme.configure({ adapter: new Adapter() });
 
 describe("Layout", () => {
   describe("Layout Structure", () => {

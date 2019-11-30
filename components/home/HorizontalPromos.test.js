@@ -1,8 +1,10 @@
-import { render } from "enzyme";
+import Enzyme, { render } from "enzyme";
+import Adapter from "enzyme-adapter-react-16";
 import React from "react";
 import { expect } from "chai";
+import HorizontalPromos from "./HorizontalPromos";
 
-import HorizontalPromos from "../../../components/home/HorizontalPromos";
+Enzyme.configure({ adapter: new Adapter() });
 
 describe("HorizontalPromos", () => {
   const promos = [

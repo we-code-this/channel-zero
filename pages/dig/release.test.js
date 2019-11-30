@@ -1,14 +1,16 @@
-import { render } from "enzyme";
+import Enzyme, { render } from "enzyme";
 import React from "react";
+import Adapter from "enzyme-adapter-react-16";
 import { expect } from "chai";
+import App from "./release";
+import { findBySlug } from "../../models/Release/releases";
 
-import App from "../../../pages/dig/release";
-import { findBySlug } from "../../../models/Release/releases";
+Enzyme.configure({ adapter: new Adapter() });
 
 describe("pages/dig/release", () => {
   let app;
   let release;
-
+  
   beforeEach(async () => {
     release = await findBySlug("artist-1-album-1");
     app = render(<App release={release} />);
@@ -18,6 +20,7 @@ describe("pages/dig/release", () => {
     const initalProps = await App.getInitialProps({
       query: { slug: "artist-1-album-1" }
     });
+
     expect(initalProps).to.deep.equal({ release });
   });
 

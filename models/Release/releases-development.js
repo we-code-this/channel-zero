@@ -21,7 +21,12 @@ export async function recent() {
 }
 
 export async function findBySlug(slug) {
-  console.log('url:', host(`/api/release/${slug}`));
   const res = await fetch(host(`/api/release/${slug}`));
   return await res.json();
 }
+
+export default {
+  get,
+  recent,
+  findBySlug
+};

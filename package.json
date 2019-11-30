@@ -6,7 +6,8 @@
   "author": "Michael Gregoire <mgregoire@nvzion.com>",
   "license": "Apache-2.0",
   "scripts": {
-    "test": "NODE_ENV=test nyc --all mocha -r esm",
+    "test": "NODE_ENV=test jest --watch --verbose=false",
+    "test-ci": "NODE_ENV=test jest --ci --verbose=false",
     "dev": "node server.js",
     "build": "next build",
     "start": "NODE_ENV=production node server.js"
@@ -62,8 +63,8 @@
     "babel-plugin-istanbul": "^5.1.0",
     "chai": "^4.2.0",
     "enzyme": "^3.8.0",
-    "enzyme-adapter-react-16": "^1.7.1",
-    "mocha": "^5.2.0",
+    "enzyme-adapter-react-16": "^1.15.1",
+    "jest": "^24.9.0",
     "nyc": "^13.1.0"
   }
 }

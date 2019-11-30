@@ -1,8 +1,10 @@
-import { render } from "enzyme";
+import Enzyme, { render } from "enzyme";
+import Adapter from "enzyme-adapter-react-16";
 import React from "react";
 import { expect } from "chai";
+import Articles from "./Articles";
 
-import Articles from "../../../components/home/Articles";
+Enzyme.configure({ adapter: new Adapter() });
 
 describe("Articles", () => {
   const articlesData = [

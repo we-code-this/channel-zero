@@ -1,9 +1,11 @@
-import { render } from "enzyme";
+import Enzyme, { render } from "enzyme";
 import React from "react";
+import Adapter from "enzyme-adapter-react-16";
+import App from "./index";
 import { expect } from "chai";
+import { fetchHomeProps } from "../models/utilities";
 
-import App from "../../pages/index";
-import { fetchHomeProps } from "../../models/utilities";
+Enzyme.configure({ adapter: new Adapter() });
 
 describe("pages/index", () => {
   let app;
