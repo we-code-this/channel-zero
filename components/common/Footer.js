@@ -1,5 +1,5 @@
 const Footer = () => (
-  <footer>
+  <footer className="footer">
     <p>&copy; {new Date().getFullYear()} ChannelZero.net, All rights reserved</p>
   </footer>
 );
