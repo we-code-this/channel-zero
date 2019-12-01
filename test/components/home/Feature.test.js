@@ -2,7 +2,7 @@ import Enzyme, { render } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import React from "react";
 import { expect } from "chai";
-import Feature from "./Feature";
+import Feature from "../../../components/home/Feature";
 
 Enzyme.configure({ adapter: new Adapter() });
 

@@ -2,7 +2,7 @@ import Enzyme, { render } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import React from "react";
 import { expect } from "chai";
-import DigHeader from "./DigHeader";
+import DigHeader from "../../../components/common/DigHeader";
 
 Enzyme.configure({ adapter: new Adapter() });
 

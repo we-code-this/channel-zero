@@ -3,7 +3,7 @@ import React from "react";
 import Adapter from "enzyme-adapter-react-16";
 import App from "./index";
 import { expect } from "chai";
-import { fetchHomeProps } from "../models/utilities";
+import { fetchHomeProps } from "../../models/utilities";
 
 Enzyme.configure({ adapter: new Adapter() });
 

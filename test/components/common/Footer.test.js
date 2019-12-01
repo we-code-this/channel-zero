@@ -2,7 +2,7 @@ import Enzyme, { render } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import React from "react";
 import { expect } from "chai";
-import Footer from "./Footer";
+import Footer from "../../../components/common/Footer";
 
 Enzyme.configure({ adapter: new Adapter() });
 

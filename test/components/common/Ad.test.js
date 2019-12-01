@@ -2,7 +2,7 @@ import Enzyme, { render } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import React from "react";
 import { expect } from "chai";
-import Ad from "./Ad";
+import Ad from "../../../components/common/Ad";
 
 Enzyme.configure({ adapter: new Adapter() });
 

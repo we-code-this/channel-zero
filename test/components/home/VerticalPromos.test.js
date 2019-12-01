@@ -2,7 +2,7 @@ import Enzyme, { render } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import React from "react";
 import { expect } from "chai";
-import VerticalPromos from "./VerticalPromos";
+import VerticalPromos from "../../../components/home/VerticalPromos";
 
 Enzyme.configure({ adapter: new Adapter() });
 
