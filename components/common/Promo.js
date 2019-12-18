@@ -1,7 +1,5 @@
 import Link from "next/link";
 
-import staticPaths from "../../lib/paths/static";
-
 const Promo = props => {
   const classes = props.className ? `${props.className} promo` : "promo";
 
@@ -9,7 +7,7 @@ const Promo = props => {
     <Link href={props.url}>
       <a className={classes}>
         <img
-          src={staticPaths.img(`logos/${props.filename}`)}
+          src={props.image_url}
           alt={props.name}
         />
       </a>

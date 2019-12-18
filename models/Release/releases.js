@@ -1,22 +1,9 @@
-import test from './releases-test';
-import development from './releases-development';
-import production from './releases-production';
-
 let ReleasesModule;
 
-function model() {
+async function model() {
   if (ReleasesModule) return ReleasesModule;
-  switch(process.env.NODE_ENV) {
-    case 'test':
-      ReleasesModule = test;
-      break;
-    case 'development':
-      ReleasesModule = development;
-      break;
-    case 'production':
-      ReleasesModule = production;
-  }
-
+  ReleasesModule = await import(`./releases-${process.env.NODE_ENV}`);
+  
   return ReleasesModule;
 }
 

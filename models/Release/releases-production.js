@@ -25,9 +25,3 @@ export async function findBySlug(slug) {
   const res = await fetch(host(`/api/release/${slug}`));
   return await res.json();
 }
-
-export default {
-  get,
-  recent,
-  findBySlug
-};
