@@ -3,7 +3,7 @@ import host from '../../lib/host';
 
 export async function count() {
   const res = await fetch(host(`/api/articles/count/published`));
-  return await res.json();
+  return (await res.json())[0].count;
 }
 
 export async function get(params = {}) {
