@@ -21,7 +21,8 @@ class Index extends Component {
       order: 'desc',
     });
 
-    const pageCount = Math.ceil(articleCount / limit);
+    const pageCount =
+      articleCount < limit ? 1 : Math.ceil(articleCount / limit);
 
     return {
       articles,
