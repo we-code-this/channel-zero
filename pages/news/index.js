@@ -14,20 +14,18 @@ class Index extends Component {
     page = parseInt(page);
 
     const start = (page - 1) * limit;
-    const articleCount = await count();
+    const articleCount = parseInt(await count());
     const articles = await get({
       start: start,
       limit: limit,
       order: 'desc',
     });
 
-    const pageCount =
-      articleCount < limit ? 1 : Math.ceil(articleCount / limit);
-
     return {
       articles,
+      limit,
       page,
-      pageCount,
+      articleCount,
     };
   }
 
@@ -36,7 +34,10 @@ class Index extends Component {
   };
 
   render() {
-    const { articles, page, pageCount } = this.props;
+    const { articles, limit, page, articleCount } = this.props;
+
+    const pageCount =
+      articleCount < limit ? 1 : Math.ceil(articleCount / limit);
 
     return (
       <Layout inner>
