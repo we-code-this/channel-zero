@@ -33,7 +33,7 @@ class Feature extends Component {
     // this.state.video is not required
     return (
       <Columns>
-        <Article {...this.state.article} />
+        <Article {...this.state.article} isFeature={true} />
         {this.state.video ? this.renderVideo() : undefined}
       </Columns>
     );

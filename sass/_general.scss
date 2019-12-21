@@ -13,7 +13,7 @@ h5 a {
 
 body {
   font-size: 16px;
-  font-family: "Rubik", sans-serif;
+  font-family: 'Rubik', sans-serif;
 }
 
 section {
@@ -106,4 +106,26 @@ ol {
     width: auto;
     margin: 0 auto;
   }
+}
+
+.center-container {
+  text-align: center;
+
+  .center-content {
+    text-align: left;
+
+    @media (min-width: $desktop) {
+      margin: 0 20%;
+    }
+  }
+}
+
+.seamless {
+  margin: 0 -1.5rem;
+}
+
+.banner-image {
+  margin-bottom: 1rem;
+  height: 20rem;
+  cursor: pointer;
 }
