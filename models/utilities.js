@@ -1,6 +1,9 @@
 import { recent as fetchReleases } from './Release/releases';
 import { current as fetchAd } from './Ad/ads';
-import { current as fetchFeature } from './Feature/features';
+import {
+  current as fetchFeature,
+  findById as findFeatureById,
+} from './Feature/features';
 import {
   recent as fetchArticles,
   findBySlug as findArticleBySlug,
@@ -40,6 +43,13 @@ const fetchArticlePageProps = async slug => {
   };
 };
 
+const fetchFeaturePageProps = async id => {
+  const feature = await findFeatureById(id);
+  return {
+    feature,
+  };
+};
+
 export {
   fetchAd,
   fetchFeature,
@@ -48,4 +58,5 @@ export {
   fetchReleases,
   fetchHomeProps,
   fetchArticlePageProps,
+  fetchFeaturePageProps,
 };

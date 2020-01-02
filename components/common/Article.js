@@ -5,12 +5,12 @@ import FeatureLink from './links/FeatureLink';
 const Article = props => {
   let headingLink, readMoreLink;
   let columnStyles = {};
-  if (props.isFeature) {
+  if (props.feature) {
     headingLink = (
-      <FeatureLink slug={props.slug}>{props.title}</FeatureLink>
+      <FeatureLink id={props.feature}>{props.title}</FeatureLink>
     );
     readMoreLink = (
-      <FeatureLink slug={props.slug}>Read more…</FeatureLink>
+      <FeatureLink id={props.feature}>Read more…</FeatureLink>
     );
   } else {
     headingLink = (

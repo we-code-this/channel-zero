@@ -1,6 +1,7 @@
-import React, { Component } from "react";
-import { Columns } from "react-bulma-components";
-import Article from "../common/Article";
+import React, { Component } from 'react';
+import { Columns } from 'react-bulma-components';
+import Article from '../common/Article';
+import Video from '../common/Video';
 
 class Feature extends Component {
   constructor(props) {
@@ -8,7 +9,7 @@ class Feature extends Component {
 
     this.state = {
       article: props.article,
-      video: props.video
+      video: props.video,
     };
   }
 
@@ -16,14 +17,7 @@ class Feature extends Component {
     return (
       <Columns.Column size="two-thirds" id="feature">
         <div className="column-content">
-          <div className="video-container">
-            <iframe
-              src={this.state.video.src}
-              frameBorder="0"
-              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
-          </div>
+          <Video src={this.state.video.src} />
         </div>
       </Columns.Column>
     );
@@ -33,7 +27,7 @@ class Feature extends Component {
     // this.state.video is not required
     return (
       <Columns>
-        <Article {...this.state.article} isFeature={true} />
+        <Article {...this.state.article} feature={this.props.id} />
         {this.state.video ? this.renderVideo() : undefined}
       </Columns>
     );

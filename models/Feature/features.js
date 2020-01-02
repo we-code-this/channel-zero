@@ -7,6 +7,17 @@ async function model() {
   return FeaturesModule;
 }
 
+export async function findById(id) {
+  let feature;
+  try {
+    feature = await (await model()).findById(id);
+  } catch (e) {
+    feature = undefined;
+  }
+
+  return feature;
+}
+
 export async function get() {
   const features = await (await model()).get();
   return features;
@@ -19,6 +30,6 @@ export async function current() {
   } catch (e) {
     feature = undefined;
   }
-  
+
   return feature;
 }
