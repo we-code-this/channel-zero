@@ -20,17 +20,15 @@ const proxy = {
   },
 };
 
+const app = next({ dev: isDev });
+const handler = routes.getRequestHandler(app);
+
 const cacheManager = cacheableResponse({
   ttl: 1000 * 60 * 60, // 1hour
   get: async ({ req, res, pagePath, queryParams }) => {
     try {
       return {
-        data: await nextApp.renderToHTML(
-          req,
-          res,
-          pagePath,
-          queryParams,
-        ),
+        data: await app.renderToHTML(req, res, pagePath, queryParams),
       };
     } catch (e) {
       return { data: 'error: ' + e };
@@ -40,9 +38,6 @@ const cacheManager = cacheableResponse({
     res.send(data);
   },
 });
-
-const app = next({ dev: isDev });
-const handler = routes.getRequestHandler(app);
 
 app
   .prepare()
