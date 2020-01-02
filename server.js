@@ -53,6 +53,10 @@ app
       handler(req, res);
     });
 
+    server.get('/static/*', (req, res) => {
+      handler(req, res);
+    });
+
     server.get('*', (req, res) => {
       if (isDev || req.query.noCache) {
         res.setHeader('X-Cache-Status', 'DISABLED');
