@@ -27,7 +27,7 @@ const app = next({ dev: isDev });
 const handler = routes.getRequestHandler(app);
 const cacheStore = new Keyv({ namespace: 'ssr-cache' });
 
-const _getSSRCacheKey = req => {
+const _getSSRCacheKey = ({ req }) => {
   const url = urlResolve('http://localhost', req.url);
   const { origin } = new URL(url);
   const baseKey = normalizeUrl(url, {
