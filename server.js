@@ -27,8 +27,14 @@ const app = next({ dev: isDev });
 const handler = routes.getRequestHandler(app);
 const cacheStore = new Keyv({ namespace: 'ssr-cache' });
 
-const _getSSRCacheKey = ({ req }) => {
-  const url = urlResolve('http://localhost', req.url);
+const _getSSRCacheKey = req => {
+  let request = req;
+
+  if (req.req) {
+    request = req.req;
+  }
+
+  const url = urlResolve('http://localhost', request.url);
   const { origin } = new URL(url);
   const baseKey = normalizeUrl(url, {
     removeQueryParameters: [
@@ -62,7 +68,7 @@ const cacheManager = cacheableResponse({
   compress: true,
 });
 
-function clearCompleteCache(res, req) {
+function clearCompleteCache(req, res) {
   cacheStore.clear();
   res.status(200);
   res.send({
@@ -121,7 +127,7 @@ app
 
     server.purge('*', (req, res) => {
       if (req.query.clearCache) {
-        clearCompleteCache(res, req);
+        clearCompleteCache(req, res);
       } else {
         clearCacheForRequestUrl(req, res);
       }
