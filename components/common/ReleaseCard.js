@@ -1,8 +1,8 @@
-import { Card, Content } from "react-bulma-components";
-import ReleaseCreditList from "./ReleaseCreditList";
-import EndorsementList from "./EndorsementList";
+import { Card, Content } from 'react-bulma-components';
+import ReleaseCreditList from './ReleaseCreditList';
+import EndorsementList from './EndorsementList';
 
-import staticPaths from "../../lib/paths/static";
+import staticPaths from '../../lib/paths/static';
 
 const ReleaseCard = ({ release }) => (
   <Card>
@@ -12,8 +12,12 @@ const ReleaseCard = ({ release }) => (
     />
     <Card.Content>
       <Content>
-        <ReleaseCreditList credits={release.credits} label={release.label} />
-        {release.credits.length ? <hr /> : ""}
+        <ReleaseCreditList
+          credits={release.credits}
+          label={release.label}
+          catalogNumber={release.catalog_number}
+        />
+        {release.credits.length ? <hr /> : ''}
         <EndorsementList endorsements={release.endorsements} />
       </Content>
     </Card.Content>
