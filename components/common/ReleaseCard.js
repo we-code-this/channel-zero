@@ -1,3 +1,4 @@
+import React from 'react';
 import { Card, Content } from 'react-bulma-components';
 import ReleaseCreditList from './ReleaseCreditList';
 import EndorsementList from './EndorsementList';
@@ -12,11 +13,7 @@ const ReleaseCard = ({ release }) => (
     />
     <Card.Content>
       <Content>
-        <ReleaseCreditList
-          credits={release.credits}
-          label={release.label}
-          catalogNumber={release.catalog_number}
-        />
+        <ReleaseCreditList {...release} />
         {release.credits.length ? <hr /> : ''}
         <EndorsementList endorsements={release.endorsements} />
       </Content>
