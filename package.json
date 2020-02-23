@@ -62,7 +62,7 @@
     "react-bulma-components": "^2.3.0",
     "react-dom": "^16.7.0",
     "url": "^0.11.0",
-    "yarn": "^1.12.3"
+    "yarn": "^1.22.0"
   },
   "devDependencies": {
     "babel-plugin-istanbul": "^5.1.0",
