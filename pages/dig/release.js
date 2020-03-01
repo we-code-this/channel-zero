@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import he from 'he';
 import Markdown from 'markdown-to-jsx';
 import { withRouter } from 'next/router';
 import { Columns } from 'react-bulma-components';
@@ -6,6 +7,7 @@ import DigHeader from '../../components/common/DigHeader';
 import Layout from '../../components/common/layouts/Layout';
 import Vendors from '../../components/common/Vendors';
 import ReleaseCard from '../../components/common/ReleaseCard';
+import ReleaseDiscs from '../../components/common/ReleaseDiscs';
 import { findBySlug } from '../../models/Release/releases';
 
 class Release extends Component {
@@ -34,8 +36,11 @@ class Release extends Component {
           <Columns.Column>
             <Vendors vendors={release.vendors} />
             <Markdown className="content page-content">
-              {release.description}
+              {he.decode(release.description)}
             </Markdown>
+            {release.discs.length > 0 && (
+              <ReleaseDiscs discs={release.discs} />
+            )}
           </Columns.Column>
         </Columns>
       </>

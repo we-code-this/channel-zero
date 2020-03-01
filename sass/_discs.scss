@@ -1,0 +1,28 @@
+.release-discs {
+  background-color: #f1f1f1;
+  max-width: 48rem;
+  padding: 1rem;
+
+  .release-disc {
+    margin-bottom: 1rem;
+
+    .title {
+      margin: 1.5rem 0 0.5rem;
+    }
+
+    &:first-child {
+      .title {
+        margin-top: 0;
+      }
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .track-number {
+    font-weight: bold;
+    margin-right: 0.5rem;
+  }
+}
