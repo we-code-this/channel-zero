@@ -7,7 +7,6 @@ import CenterContent from '../components/common/CenterContent';
 import BannerImage from '../components/common/BannerImage';
 import ArticleLink from '../components/common/links/ArticleLink';
 import { fetchArticlePageProps } from '../models/utilities';
-import staticPaths from '../lib/paths/static';
 
 class Article extends Component {
   static async getInitialProps({ query: { slug } }) {
@@ -25,7 +24,7 @@ class Article extends Component {
           </CenterContent>
           {article.filename && (
             <BannerImage
-              url={staticPaths.article(article.filename)}
+              url={article.url.large}
               alt={article.title}
             />
           )}

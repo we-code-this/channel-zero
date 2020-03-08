@@ -1,12 +1,10 @@
-import { Link } from "../../../routes";
-
-import staticPaths from "../../../lib/paths/static";
+import { Link } from '../../../routes';
 
 const ReleaseCoverLink = props => (
   <Link prefetch route="dig/release" params={{ slug: props.slug }}>
     <a>
       <img
-        src={staticPaths.release(props.filename)}
+        src={props.url.medium}
         alt={`${props.artist.name} - ${props.title}`}
       />
     </a>
