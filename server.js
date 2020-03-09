@@ -103,6 +103,22 @@ app
       server.use(proxyMiddleware(context, proxy[context]));
     });
 
+    server.get('/article/:slug', (req, res) => {
+      return app.render(req, res, '/article', {
+        slug: req.params.slug,
+      });
+    });
+
+    server.get('/feature/:id', (req, res) => {
+      return app.render(req, res, '/feature', { id: req.params.id });
+    });
+
+    server.get('/dig/release/:slug', (req, res) => {
+      return app.render(req, res, '/dig/release', {
+        slug: req.params.slug,
+      });
+    });
+
     server.get('/_next/*', (req, res) => {
       handler(req, res);
     });
