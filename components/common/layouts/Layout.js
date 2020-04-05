@@ -1,4 +1,6 @@
+import host from '../../../lib/host';
 import Head from 'next/head';
+import Helmet from 'react-helmet';
 import Header from '../Header';
 import Footer from '../Footer';
 
@@ -33,7 +35,28 @@ const Layout = ({ children, title, header, inner }) => {
           type="image/png"
           href="/static/img/favicon.png"
         />
+        <link
+          rel="apple-touch-icon"
+          href="/static/img/apple-touch-icon-channelzero.jpg"
+        />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta
+          name="apple-mobile-web-app-status-bar-style"
+          content="black"
+        />
       </Head>
+      <Helmet>
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={pageTitle} />
+        <meta
+          property="og:description"
+          content="ChannelZero is a central platform for discovering great new music by our family of labels and artists."
+        />
+        <meta
+          property="og:image"
+          content={host('/static/img/meta-graphic-channelzero.jpg')}
+        />
+      </Helmet>
       <div className={pageClasses}>
         {header}
         <section id="main">{children}</section>

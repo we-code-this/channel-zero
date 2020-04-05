@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import he from 'he';
+import Helmet from 'react-helmet';
 import Markdown from 'markdown-to-jsx';
+import removeMd from 'remove-markdown';
 import { withRouter } from 'next/router';
 import { Columns } from 'react-bulma-components';
+import host from '../../lib/host';
 import DigHeader from '../../components/common/DigHeader';
 import Layout from '../../components/common/layouts/Layout';
 import Vendors from '../../components/common/Vendors';
@@ -21,9 +24,25 @@ class Release extends Component {
 
   renderRelease() {
     const { release } = this.props;
+    const pageTitle = `“${release.title}” by ${release.artist.name}`;
+    const pageDescription = he.decode(
+      removeMd(release.description)
+        .substr(0, 255)
+        .replace('\n\n', ' '),
+    );
 
     return (
       <>
+        <Helmet>
+          <title>{pageTitle}</title>
+          <meta property="og:type" content="music.album" />
+          <meta property="og:title" content={pageTitle} />
+          <meta property="og:description" content={pageDescription} />
+          <meta
+            property="og:image"
+            content={host(release.url.large)}
+          />
+        </Helmet>
         <h1 className="title">{release.title}</h1>
         <h2 className="subtitle">{release.artist.name}</h2>
         <Columns>

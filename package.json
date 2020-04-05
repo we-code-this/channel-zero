@@ -63,6 +63,7 @@
     "react-bulma-components": "^2.3.0",
     "react-dom": "^16.7.0",
     "react-helmet": "^5.2.1",
+    "remove-markdown": "^0.3.0",
     "url": "^0.11.0",
     "yarn": "^1.12.3"
   },
@@ -82,6 +83,6 @@
     "eslint-plugin-standard": "^4.0.1",
     "jest": "^24.9.0",
     "nyc": "^13.1.0",
-    "prettier": "^1.19.1"
+    "prettier": "^2.0.2"
   }
 }
