@@ -11,8 +11,10 @@ import 'isomorphic-unfetch';
 import { fetchHomeProps } from '../models/utilities';
 
 class Index extends Component {
-  static async getInitialProps() {
-    return await fetchHomeProps();
+  static async getInitialProps(props) {
+    const pageProps = await fetchHomeProps();
+
+    return pageProps;
   }
 
   constructor(props) {
@@ -30,7 +32,7 @@ class Index extends Component {
 
   render() {
     return (
-      <Layout>
+      <Layout url="/">
         {this.state.ad && (
           <Ad
             url={this.state.ad.url}

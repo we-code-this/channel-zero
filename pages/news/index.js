@@ -29,7 +29,7 @@ class Index extends Component {
     };
   }
 
-  changePage = page => {
+  changePage = (page) => {
     Router.pushRoute('news', { page: page });
   };
 
@@ -40,10 +40,10 @@ class Index extends Component {
       articleCount < limit ? 1 : Math.ceil(articleCount / limit);
 
     return (
-      <Layout inner>
+      <Layout inner url="/news">
         <CenterContent>
           <h1 className="title">News</h1>
-          {articles.map(article => (
+          {articles.map((article) => (
             <Article {...article} key={article.id} noHPadding />
           ))}
 

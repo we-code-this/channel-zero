@@ -7,8 +7,10 @@ import Video from '../components/common/Video';
 import { fetchFeaturePageProps } from '../models/utilities';
 
 class Feature extends Component {
-  static async getInitialProps({ query: { id } }) {
-    return await fetchFeaturePageProps(id);
+  static async getInitialProps({ req, query: { id } }) {
+    const pageProps = await fetchFeaturePageProps(id);
+
+    return pageProps;
   }
 
   render() {
@@ -16,7 +18,11 @@ class Feature extends Component {
       const { article, video } = this.props.feature;
 
       return (
-        <Layout title={article.title} inner>
+        <Layout
+          title={article.title}
+          inner
+          url={`/feature/${this.props.feature.id}`}
+        >
           <CenterContent>
             <h1 className="title">{article.title}</h1>
             <Columns>

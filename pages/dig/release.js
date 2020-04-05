@@ -70,7 +70,11 @@ class Release extends Component {
     const header = <DigHeader />;
 
     return (
-      <Layout header={header} inner>
+      <Layout
+        header={header}
+        inner
+        url={`/dig/release/${this.props.release.slug}`}
+      >
         {this.props.release && this.renderRelease()}
       </Layout>
     );

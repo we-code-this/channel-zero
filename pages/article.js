@@ -9,8 +9,10 @@ import ArticleLink from '../components/common/links/ArticleLink';
 import { fetchArticlePageProps } from '../models/utilities';
 
 class Article extends Component {
-  static async getInitialProps({ query: { slug } }) {
-    return await fetchArticlePageProps(slug);
+  static async getInitialProps({ req, query: { slug } }) {
+    const pageProps = await fetchArticlePageProps(slug);
+
+    return pageProps;
   }
 
   render() {
@@ -18,7 +20,11 @@ class Article extends Component {
       const { article, next, prev } = this.props;
 
       return (
-        <Layout title={article.title} inner>
+        <Layout
+          title={article.title}
+          inner
+          url={`/article/${article.slug}`}
+        >
           <CenterContent>
             <h1 className="title">{article.title}</h1>
           </CenterContent>

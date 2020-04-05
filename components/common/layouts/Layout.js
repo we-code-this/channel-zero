@@ -4,9 +4,10 @@ import Helmet from 'react-helmet';
 import Header from '../Header';
 import Footer from '../Footer';
 
-const Layout = ({ children, title, header, inner }) => {
+const Layout = ({ children, title, header, inner, url = '' }) => {
   const siteName = 'Channel Zero';
   let pageTitle = siteName;
+  let pageUrl = host(url);
 
   if (title) {
     pageTitle = `${title} - ${siteName}`;
@@ -30,6 +31,7 @@ const Layout = ({ children, title, header, inner }) => {
           content="width=device-width, initial-scale=1, viewport-fit=cover"
         />
         <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
+        <link rel="canonical" href={pageUrl} />
         <link
           rel="icon"
           type="image/png"
@@ -48,6 +50,7 @@ const Layout = ({ children, title, header, inner }) => {
       <Helmet>
         <meta property="og:type" content="website" />
         <meta property="og:title" content={pageTitle} />
+        <meta property="og:url" content={pageUrl} />
         <meta
           property="og:description"
           content="ChannelZero is a central platform for discovering great new music by our family of labels and artists."

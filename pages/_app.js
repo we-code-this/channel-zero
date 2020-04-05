@@ -1,8 +1,8 @@
-import React from "react";
-import App, { Container } from "next/app";
-import Icons from "../components/common/Icons";
+import React from 'react';
+import App, { Container } from 'next/app';
+import Icons from '../components/common/Icons';
 
-import "../sass/app.scss";
+import '../sass/app.scss';
 
 export default class MyApp extends App {
   static async getInitialProps({ Component, router, ctx }) {

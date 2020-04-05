@@ -23,7 +23,7 @@ class Index extends Component {
     const pageTitle = 'Dig The Dig @ ChannelZero';
 
     return (
-      <Layout header={header} inner>
+      <Layout header={header} inner url="/dig">
         <Helmet>
           <title>{pageTitle}</title>
           <meta property="og:type" content="website" />
