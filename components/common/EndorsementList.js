@@ -1,8 +1,8 @@
-import Endorsement from "./Endorsement";
+import Endorsement from './Endorsement';
 
 const EndorsementList = ({ endorsements }) => (
   <ul className="is-unstyled">
-    {endorsements.map(endorsement => {
+    {endorsements.map((endorsement) => {
       return (
         <li key={`endorsement-${endorsement.id}`}>
           <Endorsement {...endorsement} />
