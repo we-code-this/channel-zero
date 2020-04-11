@@ -24,7 +24,10 @@ class Release extends Component {
 
   renderRelease() {
     const { release } = this.props;
-    const pageTitle = `“${release.title}” by ${release.artist.name}`;
+    const releaseTitle = he.decode(release.title);
+    const artistName = he.decode(release.artist.name);
+
+    const pageTitle = `“${releaseTitle}” by ${artistName}`;
     const pageDescription = he.decode(
       removeMd(release.description)
         .substr(0, 255)
@@ -43,8 +46,8 @@ class Release extends Component {
             content={host(release.url.large)}
           />
         </Helmet>
-        <h1 className="title">{release.title}</h1>
-        <h2 className="subtitle">{release.artist.name}</h2>
+        <h1 className="title">{releaseTitle}</h1>
+        <h2 className="subtitle">{artistName}</h2>
         <Columns>
           <Columns.Column
             tablet={{ size: 'half' }}
