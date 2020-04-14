@@ -57,9 +57,11 @@ class Release extends Component {
           </Columns.Column>
           <Columns.Column>
             <Vendors vendors={release.vendors} />
-            <Markdown className="content page-content">
-              {he.decode(release.description)}
-            </Markdown>
+            <div className="has-margin-bottom">
+              <Markdown className="content page-content">
+                {he.decode(release.description)}
+              </Markdown>
+            </div>
             {release.discs.length > 0 && (
               <ReleaseDiscs discs={release.discs} />
             )}
