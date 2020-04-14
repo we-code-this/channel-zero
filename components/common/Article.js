@@ -1,20 +1,25 @@
+import he from 'he';
 import { Columns } from 'react-bulma-components';
 import ArticleLink from './links/ArticleLink';
 import FeatureLink from './links/FeatureLink';
 
-const Article = props => {
+const Article = (props) => {
   let headingLink, readMoreLink;
   let columnStyles = {};
   if (props.feature) {
     headingLink = (
-      <FeatureLink id={props.feature}>{props.title}</FeatureLink>
+      <FeatureLink id={props.feature}>
+        {he.decode(props.title)}
+      </FeatureLink>
     );
     readMoreLink = (
       <FeatureLink id={props.feature}>Read more…</FeatureLink>
     );
   } else {
     headingLink = (
-      <ArticleLink slug={props.slug}>{props.title}</ArticleLink>
+      <ArticleLink slug={props.slug}>
+        {he.decode(props.title)}
+      </ArticleLink>
     );
     readMoreLink = (
       <ArticleLink slug={props.slug}>Read more…</ArticleLink>
@@ -32,7 +37,9 @@ const Article = props => {
       <div className="column-content">
         <h2 className="title is-4">{headingLink}</h2>
         <p>
-          {props.summary.replace(/^(.{200}[^\s]*).*/, '$1…')}{' '}
+          {he
+            .decode(props.summary)
+            .replace(/^(.{200}[^\s]*).*/, '$1…')}{' '}
           {readMoreLink}
         </p>
       </div>

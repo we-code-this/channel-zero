@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import he from 'he';
 import Markdown from 'markdown-to-jsx';
 import { Columns } from 'react-bulma-components';
 import { Link } from '../routes';
@@ -21,12 +22,12 @@ class Article extends Component {
 
       return (
         <Layout
-          title={article.title}
+          title={he.decode(article.title)}
           inner
           url={`/article/${article.slug}`}
         >
           <CenterContent>
-            <h1 className="title">{article.title}</h1>
+            <h1 className="title">{he.decode(article.title)}</h1>
           </CenterContent>
           {article.filename && (
             <BannerImage
@@ -38,7 +39,7 @@ class Article extends Component {
             <Columns>
               <Columns.Column>
                 <Markdown className="content">
-                  {article.description}
+                  {he.decode(article.description)}
                 </Markdown>
               </Columns.Column>
             </Columns>

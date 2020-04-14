@@ -9,7 +9,7 @@ class BannerImage extends Component {
     };
   }
 
-  escapeModal = e => {
+  escapeModal = (e) => {
     if (e.which === 27 || e.which === 13) {
       this.toggleModal();
     }
@@ -43,7 +43,7 @@ class BannerImage extends Component {
           >
             <div className="modal-background"></div>
             <div className="modal-content">
-              <p className="image is-4by3">
+              <p className="image">
                 <img src={this.props.url} alt={this.props.alt} />
               </p>
             </div>
