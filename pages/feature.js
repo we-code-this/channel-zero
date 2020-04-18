@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Markdown from 'markdown-to-jsx';
+import he from 'he';
 import { Columns } from 'react-bulma-components';
 import Layout from '../components/common/layouts/Layout';
 import CenterContent from '../components/common/CenterContent';
@@ -19,12 +20,12 @@ class Feature extends Component {
 
       return (
         <Layout
-          title={article.title}
+          title={he.decode(article.title)}
           inner
           url={`/feature/${this.props.feature.id}`}
         >
           <CenterContent>
-            <h1 className="title">{article.title}</h1>
+            <h1 className="title">{he.decode(article.title)}</h1>
             <Columns>
               <Columns.Column>
                 <Video src={video.src} />
