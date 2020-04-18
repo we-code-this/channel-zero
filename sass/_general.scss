@@ -1,6 +1,6 @@
 html {
-  background: #000 url(/static/img/bg-alt.jpg) top left no-repeat;
-  background-size: cover;
+  background: #000 url(/static/img/bg-alt.jpg) top left repeat-y;
+  background-size: contain;
 }
 
 html,
