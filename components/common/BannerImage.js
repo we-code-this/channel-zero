@@ -49,7 +49,10 @@ class BannerImage extends Component {
               this.state.showModal ? 'modal is-active' : 'modal'
             }
           >
-            <div className="modal-background"></div>
+            <div
+              className="modal-background"
+              onClick={this.toggleModal}
+            ></div>
             <div className="modal-content">
               <p className="image">
                 <img src={this.props.url} alt={this.props.alt} />
