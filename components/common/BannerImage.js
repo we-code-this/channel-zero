@@ -33,9 +33,17 @@ class BannerImage extends Component {
             backgroundPosition: 'center',
             backgroundSize: 'cover',
           }}
-          role="button"
-          onClick={this.toggleModal}
         >
+          <div className="inner-image-container">
+            <div>
+              <img
+                src={this.props.url}
+                alt={this.props.alt}
+                role="button"
+                onClick={this.toggleModal}
+              />
+            </div>
+          </div>
           <div
             className={
               this.state.showModal ? 'modal is-active' : 'modal'
