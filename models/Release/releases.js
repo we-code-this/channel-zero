@@ -7,6 +7,10 @@ async function model() {
   return ReleasesModule;
 }
 
+export async function count() {
+  return await (await model()).count();
+}
+
 export async function get(params = {}) {
   let releases;
   try {

@@ -1,26 +1,47 @@
 import React, { Component } from 'react';
 import Helmet from 'react-helmet';
 import { withRouter } from 'next/router';
+import { Router } from '../../routes';
 import host from '../../lib/host';
-import { Columns } from 'react-bulma-components';
+import { Columns, Pagination } from 'react-bulma-components';
 import DigHeader from '../../components/common/DigHeader';
 import Layout from '../../components/common/layouts/Layout';
 import Release from '../../components/common/Release';
-import { get } from '../../models/Release/releases';
+import { get, count } from '../../models/Release/releases';
 
 class Index extends Component {
-  static async getInitialProps() {
-    const releases = await get({ limit: 12, order: 'desc' });
+  static async getInitialProps(context) {
+    const limit = 12;
+    let { page = 1 } = context.query;
+    page = parseInt(page);
+
+    const start = (page - 1) * limit;
+    const releaseCount = parseInt(await count());
+
+    const releases = await get({
+      start: start,
+      limit: limit,
+      order: 'desc',
+    });
 
     return {
       releases,
+      limit,
+      page,
+      releaseCount,
     };
   }
 
+  changePage = (page) => {
+    Router.pushRoute('dig', { page: page });
+  };
+
   render() {
     const header = <DigHeader />;
-    const { releases } = this.props;
-    const pageTitle = 'Dig The Dig @ ChannelZero';
+    const { releases, limit, page, releaseCount } = this.props;
+    const pageCount =
+      releaseCount < limit ? 1 : Math.ceil(releaseCount / limit);
+    const pageTitle = `Dig The Dig @ ChannelZero Page ${page}`;
 
     return (
       <Layout header={header} inner url="/dig">
@@ -45,6 +66,12 @@ class Index extends Component {
             </Columns.Column>
           ))}
         </Columns>
+        <Pagination
+          className="is-centered"
+          total={pageCount}
+          current={page}
+          onChange={this.changePage}
+        />
       </Layout>
     );
   }

@@ -1,6 +1,11 @@
 import 'isomorphic-unfetch';
 import host from '../../lib/host';
 
+export async function count() {
+  const res = await fetch(host(`/api/releases/count/published`));
+  return (await res.json())[0].count;
+}
+
 export async function get(params = {}) {
   const order = params.order ? params.order.toUpperCase() : 'DESC';
   let url = host('/api/releases');
