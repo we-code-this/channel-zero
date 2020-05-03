@@ -28,7 +28,7 @@ class Feature extends Component {
             <h1 className="title">{he.decode(article.title)}</h1>
             <Columns>
               <Columns.Column>
-                <Video src={video.src} />
+                <Video src={video.src} title={video.title} />
                 <Markdown className="content">
                   {article.description}
                 </Markdown>

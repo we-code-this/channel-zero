@@ -20,6 +20,9 @@ const proxy = {
     target: process.env.FILE_PROXY_TARGET,
     pathRewrite: { '^/files': process.env.FILE_ROOT_PATH },
     changeOrigin: true,
+    onProxyRes: (proxyRes, req, res) => {
+      proxyRes.headers['Cache-Control'] = 'public, max-age=2592000';
+    },
   },
 };
 
@@ -27,7 +30,7 @@ const app = next({ dev: isDev });
 const handler = routes.getRequestHandler(app);
 const cacheStore = new Keyv({ namespace: 'ssr-cache' });
 
-const _getSSRCacheKey = req => {
+const _getSSRCacheKey = (req) => {
   let request = req;
 
   if (req.req) {
@@ -99,7 +102,7 @@ app
     const server = express();
 
     const proxyMiddleware = require('http-proxy-middleware');
-    Object.keys(proxy).forEach(function(context) {
+    Object.keys(proxy).forEach(function (context) {
       server.use(proxyMiddleware(context, proxy[context]));
     });
 
@@ -149,12 +152,12 @@ app
       }
     });
 
-    server.listen(3002, err => {
+    server.listen(3002, (err) => {
       if (err) throw err;
       console.log('> Ready on http://localhost:3002');
     });
   })
-  .catch(ex => {
+  .catch((ex) => {
     console.error(ex.stack);
     process.exit(1);
   });

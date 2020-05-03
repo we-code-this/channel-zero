@@ -17,7 +17,10 @@ class Feature extends Component {
     return (
       <Columns.Column size="two-thirds" id="feature">
         <div className="column-content">
-          <Video src={this.state.video.src} />
+          <Video
+            src={this.state.video.src}
+            title={this.state.video.title}
+          />
         </div>
       </Columns.Column>
     );
