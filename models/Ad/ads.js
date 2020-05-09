@@ -19,6 +19,6 @@ export async function current() {
   } catch (e) {
     ad = undefined;
   }
-  
+
   return ad;
 }

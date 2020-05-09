@@ -31,7 +31,7 @@ const fetchHomeProps = async () => {
   };
 };
 
-const fetchArticlePageProps = async slug => {
+const fetchArticlePageProps = async (slug) => {
   const article = await findArticleBySlug(slug);
   const prev = await getPrevArticle(article.id);
   const next = await getNextArticle(article.id);
@@ -43,7 +43,7 @@ const fetchArticlePageProps = async slug => {
   };
 };
 
-const fetchFeaturePageProps = async id => {
+const fetchFeaturePageProps = async (id) => {
   const feature = await findFeatureById(id);
   return {
     feature,
