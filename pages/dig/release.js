@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import he from 'he';
-import Helmet from 'react-helmet';
+import Head from 'next/head';
 import Markdown from 'markdown-to-jsx';
 import removeMd from 'remove-markdown';
 import { withRouter } from 'next/router';
@@ -36,16 +36,29 @@ class Release extends Component {
 
     return (
       <>
-        <Helmet>
-          <title>{pageTitle}</title>
-          <meta property="og:type" content="music.album" />
-          <meta property="og:title" content={pageTitle} />
-          <meta property="og:description" content={pageDescription} />
+        <Head>
+          <title key="title">{pageTitle}</title>
+          <meta
+            property="og:type"
+            content="music.album"
+            key="og-type"
+          />
+          <meta
+            property="og:title"
+            content={pageTitle}
+            key="og-title"
+          />
+          <meta
+            property="og:description"
+            content={pageDescription}
+            key="og-description"
+          />
           <meta
             property="og:image"
             content={host(release.url.large)}
+            key="og-image"
           />
-        </Helmet>
+        </Head>
         <h1 className="title">{releaseTitle}</h1>
         <h2 className="subtitle">{artistName}</h2>
         <Columns>

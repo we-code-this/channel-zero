@@ -1,6 +1,5 @@
 import host from '../../../lib/host';
 import Head from 'next/head';
-import Helmet from 'react-helmet';
 import Header from '../Header';
 import Footer from '../Footer';
 
@@ -25,13 +24,13 @@ const Layout = ({ children, title, header, inner, url = '' }) => {
     <React.Fragment>
       <Head>
         <meta charSet="utf-8" />
-        <title>{pageTitle}</title>
+        <title key="title">{pageTitle}</title>
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1, viewport-fit=cover"
         />
         <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
-        <link rel="canonical" href={pageUrl} />
+        <link rel="canonical" href={pageUrl} key="canonical" />
         <link
           rel="icon"
           type="image/png"
@@ -46,20 +45,24 @@ const Layout = ({ children, title, header, inner, url = '' }) => {
           name="apple-mobile-web-app-status-bar-style"
           content="black"
         />
-      </Head>
-      <Helmet>
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content={pageTitle} />
-        <meta property="og:url" content={pageUrl} />
+        <meta property="og:type" content="website" key="og-type" />
+        <meta
+          property="og:title"
+          content={pageTitle}
+          key="og-title"
+        />
+        <meta property="og:url" content={pageUrl} key="og-url" />
         <meta
           property="og:description"
           content="ChannelZero is a central platform for discovering great new music by our family of labels and artists."
+          key="og-description"
         />
         <meta
           property="og:image"
           content={host('/static/img/meta-graphic-channelzero.jpg')}
+          key="og-image"
         />
-      </Helmet>
+      </Head>
       <div className={pageClasses}>
         {header}
         <section id="main">{children}</section>

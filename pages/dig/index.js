@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Helmet from 'react-helmet';
+import Head from 'next/head';
 import { withRouter } from 'next/router';
 import { Router } from '../../routes';
 import host from '../../lib/host';
@@ -45,19 +45,24 @@ class Index extends Component {
 
     return (
       <Layout header={header} inner url="/dig">
-        <Helmet>
-          <title>{pageTitle}</title>
-          <meta property="og:type" content="website" />
-          <meta property="og:title" content={pageTitle} />
+        <Head>
+          <title key="title">{pageTitle}</title>
+          <meta
+            property="og:title"
+            content={pageTitle}
+            key="og-title"
+          />
           <meta
             property="og:description"
             content="Discover great new music being released by the ChannelZero family of labels and artists."
+            key="og-description"
           />
           <meta
             property="og:image"
             content={host('/static/img/meta-graphic-dig-the-dig.jpg')}
+            key="og-image"
           />
-        </Helmet>
+        </Head>
         <h1 className="title">Dig The Dig</h1>
         <Columns>
           {releases.map((release) => (
