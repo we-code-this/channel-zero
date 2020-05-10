@@ -1,6 +1,6 @@
 {
   "name": "site",
-  "version": "0.57.0",
+  "version": "0.58.0",
   "main": "index.js",
   "repository": "git@github.com:we-code-this/channel-zero.git",
   "author": "Michael Gregoire <mgregoire@nvzion.com>",
